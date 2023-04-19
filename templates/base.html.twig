@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <span class="title">rogr19</span>
+            </header>
+            <nav>
+                <a href="{{ path('home') }}">Hem</a>
+                <a href="{{ path('about') }}">Om</a>
+                <a href="{{ path('report') }}">Report</a>
+                <a href="{{ path('app_lucky_number') }}">Lucky</a>
+                <a href="{{ path('quote') }}">Quote</a>
+            </nav>
+            
+                {% block body %}{% endblock %}
+            <footer>Robin 2023</footer>
+        </div>
+    </body>
+</html>

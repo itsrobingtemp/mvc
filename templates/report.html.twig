@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Rapporter{% endblock %}
+
+{% block body %}
+    <h1>Rapporter</h1>
+    <p>Här finns mina redovsiningsrapporter.</p>
+
+    <h1><a href="#kmom01">Kmom01</a></h1>
+    <h2>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.</h2>
+
+    <p>
+      Jag har jobbat en hel del med objektorienterad programmering, dock främst inom generativ konst 
+      med Python och Javascript.
+    </p>
+
+    <p>
+      Att programmera objektorienterat kräver en liten tankeomställning från det funktionella sättet att 
+      programmera, men jag gillar det rätt så mycket ändå.
+    </p>
+
+    <h2>
+      Berätta kort om PHPs modell för klasser och objekt. 
+      Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?
+    </h2>
+    
+    <p>
+      Det viktigaste för en nybörjare att förstå är antagligen vad en klass och vad ett objekt verkligen är.
+      Att en klass kan ses som en ritning innehållande olika attribut och metoder, som man kan skapa objekt av.
+    </p>
+
+    <p>
+      Därefter är det nog viktigt att kunna själva syntaxet för att skapa klasserna, metoderna, attributen och objekten.
+      Kan man detta kan man nog börja skapa sina första klasser, även om man inte vet allt om t.ex. arv, access modifiers etc.
+    </p>
+    
+    <h2>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</h2>
+    
+    <p>
+      Symfony känns som ett rätt robust ramverk för att bygga upp webbsidor i. Dock känns det aningen "stort" och i mitt fall 
+      rätt långsamt att jobba med (kanske beror på att jag använder Windows med WSL2 Ubuntu).
+    </p>
+
+    <p>
+      Överlag har det dock varit relativt "straight forward" att komma igång med Symfony genom Ubuntu i WSL2 (som jag gillar väldigt mycket just nu).
+    </p>
+    
+    <h2>
+      Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? 
+      Är det några särskilda områden som du känner att du vill veta mer om? 
+      Lyft fram några delar av artikeln som du känner mer värdefulla.
+    </h2>
+    
+    <p>
+      Jag fastnade främst för kapitlet om "templating", där man förklarar hur "views"-delen i MVC-mönstret ser ut. Detta påminner mig mycket
+      om t.ex. den statiska webbsidegeneratorn Hugo, där man bygger upp sina webbsidor i HTML-views och Markdown-data "injectas" in i dessa på ett mycket 
+      snyggt sätt genom Go.
+    </p>
+
+    <p>
+      Även kapitlet "Code Style Guide" gav många bra tips om länkar till hur man skriver PHP på ett snyggt och sammanhängande sätt.
+    </p>
+    
+    <h2>Vilken är din TIL för detta kmom?</h2>
+
+    <p>Min TIL är faktiskt Ubuntu i WSL2, som jag inte har haft koll på innan. Det fungerar väldigt smidigt än så länge.</p>
+{% endblock %}
