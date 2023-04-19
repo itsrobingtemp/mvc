@@ -13,7 +13,6 @@ class AboutController extends AbstractController
     {
         $number = random_int(0, 100);
  
-        
         $data = [
             'number' => $number
         ];
