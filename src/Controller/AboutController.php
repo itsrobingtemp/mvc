@@ -12,7 +12,8 @@ class AboutController extends AbstractController
     public function about(): Response
     {
         $number = random_int(0, 100);
-
+ 
+        
         $data = [
             'number' => $number
         ];
