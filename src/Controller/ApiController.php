@@ -13,8 +13,8 @@ class ApiController
     {
 
         $quotes = [
-          "The only way to do great work is to love what you do", 
-          "You miss 100% of the shots you don't take", 
+          "The only way to do great work is to love what you do",
+          "You miss 100% of the shots you don't take",
           'Success is not final, failure is not fatal: It is the courage to continue that counts'
         ];
 
@@ -36,5 +36,3 @@ class ApiController
         return $response;
     }
 }
-
-

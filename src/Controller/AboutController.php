@@ -12,7 +12,7 @@ class AboutController extends AbstractController
     public function about(): Response
     {
         $number = random_int(0, 100);
- 
+
         $data = [
             'number' => $number
         ];
@@ -20,5 +20,3 @@ class AboutController extends AbstractController
         return $this->render('about.html.twig', $data);
     }
 }
-
-
