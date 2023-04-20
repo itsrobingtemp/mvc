@@ -1,27 +1,26 @@
-namespace App\Dice;
+<?php
+
+namespace App\Card;
 
 class Card
 {
-    protected $value;
+  private $suit;
+  private $value;
 
-    public function __construct()
-    {
-        $this->value = null;
-    }
+  public function __construct($suit, $value) {
+    $this->suit = $suit;
+    $this->value = $value;
+  }
 
-    public function roll(): int
-    {
-        $this->value = random_int(1, 6);
-        return $this->value;
-    }
+  public function getCardString() {
+    return $this->value . " of " . $this->suit;
+  }
 
-    public function getValue(): int
-    {
-        return $this->value;
-    }
+  public function getRank() {
+    return $this->value;
+  }
 
-    public function getAsString(): string
-    {
-        return "[{$this->value}]";
-    }
+  public function getSuit() {
+      return $this->suit;
+  }
 }
