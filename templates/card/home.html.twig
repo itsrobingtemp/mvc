@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Card</h1>
+    <p>Här hittar du länkar till undersidor för /card</p>
+
+    <nav>
+      <a href="{{ path('card_deck') }}">Card Deck</a>
+      <a href="{{ path('card_deck_shuffle') }}">Card Deck Shuffle</a>
+      <a href="{{ path('card_deck_draw') }}">Card Deck Draw</a>
+      <a href="{{ path('card_deck_draw_number', {'num': 10}) }}">Card Deck Draw 10</a>
+    </nav>
+{% endblock %}
