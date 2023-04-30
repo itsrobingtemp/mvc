@@ -52,3 +52,32 @@ a {
   text-align: center;
   font-size: 2rem;
 }
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  color: white;
+  padding: 1rem;
+  display: flex;
+  width: 6rem;
+  height: 8rem;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card.red {
+  border: 1px solid red;
+  color: red;
+}
+
+.card.black {
+  border: 1px solid black;
+  color: black;
+}

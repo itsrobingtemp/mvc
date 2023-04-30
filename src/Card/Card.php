@@ -30,7 +30,7 @@ class CardGraphic extends Card
     $this->graphicArr = $this->setGraphic($suit, $value);
   }
 
-  public function setGraphic($suit, $value) {
+  public function setGraphic($value, $suit) {
     $suitString = "";
     $valueString = "";
     $color = "";
@@ -72,7 +72,7 @@ class CardGraphic extends Card
       case "hearts":
         $color = "red";
         break;
-      case "diamons":
+      case "diamonds":
         $color = "red";
         break;
       case "clubs":
@@ -87,28 +87,42 @@ class CardGraphic extends Card
   }
 
   public function getGraphic() {
-    return $this->graphicArr;
+    return $this->graphicArr; 
   }
 }
 
 class DeckOfCards
 {
   private $cards;
+  private $drawnCards;
 
-  public function __construct() {
+  public function __construct($drawnCards = []) {
     $this->cards = array();
+    $this->drawnCards = $drawnCards;
     $this->createDeck();
   }
 
   public function createDeck() {
     $this->cards = array();
-    $suits = array("Spades", "Hearts", "Clubs", "Diamonds");
+    $suits = array("spades", "hearts", "clubs", "diamonds");
     $values = array("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King");
 
     foreach ($suits as $suit) {
       foreach ($values as $value) {
-        $card = new CardGraphic($value, $suit);
-        $this->cards[] = $card->getGraphic();
+        if (empty($this->drawnCards)) {
+          $card = new CardGraphic($value, $suit);
+          $this->cards[] = $card->getGraphic();
+        } else {
+
+          // If card has been drawn
+          foreach ($this->drawnCards as $card) {
+            if ($card[0] !== $value && $card[1] !== $suit) {
+              $card = new CardGraphic($value, $suit);
+              $this->cards[] = $card->getGraphic();
+            }
+          }
+
+        }
       }
     }
   }
