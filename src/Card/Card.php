@@ -83,7 +83,7 @@ class CardGraphic extends Card
         break;
     }
 
-    return array($valueString, $suitString, $color);
+    return array($valueString, $suitString, $color, $suit, $value);
   }
 
   public function getGraphic() {
@@ -107,24 +107,44 @@ class DeckOfCards
     $suits = array("spades", "hearts", "clubs", "diamonds");
     $values = array("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King");
 
-    foreach ($suits as $suit) {
-      foreach ($values as $value) {
-        if (empty($this->drawnCards)) {
-          $card = new CardGraphic($value, $suit);
-          $this->cards[] = $card->getGraphic();
-        } else {
-
-          // If card has been drawn
-          foreach ($this->drawnCards as $card) {
-            if ($card[0] !== $value && $card[1] !== $suit) {
+    // No cards drawn
+    if (empty($this->drawnCards)) {
+      foreach ($suits as $suit) {
+          foreach ($values as $value) {
               $card = new CardGraphic($value, $suit);
               $this->cards[] = $card->getGraphic();
-            }
           }
-
-        }
       }
+    } else {
+        foreach ($suits as $suit) {
+            foreach ($values as $value) {
+                $newCard = new CardGraphic($value, $suit);
+                $cardExists = false;
+
+                // If card exists
+                foreach ($this->drawnCards as $drawnCard) {
+                    if ($drawnCard[4] == $value && $drawnCard[3] == $suit) {
+                        $cardExists = true;
+                        break;
+                    }
+                }
+    
+                if (!$cardExists) {
+                    $this->cards[] = $newCard->getGraphic();
+                }
+            }
+        }
     }
+  }
+
+  public function getNumberCards($num) {
+    $cards = array();
+
+    for ($i = 0; $i < $num; $i++) {
+      $cards[] = $this->getRandomCard();
+    }
+
+    return $cards;
   }
 
   public function getCards() {

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Card\DeckOfCards;
+use App\Card;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -34,7 +35,9 @@ class CardGameController extends AbstractController
 
   #[Route("/card/deck/shuffle", name: "card_deck_shuffle")]
   public function shuffle(SessionInterface $session): Response
-  { 
+  {   
+      // Reset & set session
+      $session->set('current_cards', null);
       $currentCards = $session->get('current_cards', []);
 
       $deck = new DeckOfCards($currentCards);
@@ -54,23 +57,44 @@ class CardGameController extends AbstractController
       $currentCards = $session->get('current_cards', []);
 
       $deck = new DeckOfCards($currentCards);
-      $cards = $deck->getRandomCard();
+      $card = $deck->getRandomCard();
       $cardCount = count($deck->getCards());
 
-      $currentCards[] = $cards;
+      // Add to drawn cards session
+      $currentCards[] = $card;
       $session->set('current_cards', $currentCards);
 
       $data = [
-        'card' => $cards,
-        'count' => $cardCount
+        'card' => $card,
+        'count' => $cardCount - 1,
+        'cards' => $currentCards
       ];
 
       return $this->render('card/draw.html.twig', $data);
   }
 
-  #[Route("/card/deck/draw/{num<\d+>}", name: "card_deck_draw_number")]
-  public function draw_number(): Response
+  #[Route("/card/deck/draw/{num}", name: "draw_number")]
+  public function drawNumber(array $_route_params, SessionInterface $session): Response
   {
-      return $this->render('card/draw_number.html.twig');
+    $num = $_route_params['num'];
+    $currentCards = $session->get('current_cards', []);
+
+    $deck = new DeckOfCards($currentCards);
+    $cards = $deck->getNumberCards($num);
+    $cardCount = count($deck->getCards());
+
+    foreach ($cards as $card) {
+      $currentCards[] = $card;
+    }
+
+    // Add to drawn cards session
+    $session->set('current_cards', $currentCards);
+
+    $data = [
+      'cards' => $cards,
+      'count' => $cardCount - $num,
+    ];
+
+    return $this->render('card/draw_number.html.twig', $data);
   }
 }
