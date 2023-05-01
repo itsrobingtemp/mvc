@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}API{% endblock %}
+
+{% block body %}
+    <h1>API</h1>
+    <p>Denna webbsida erbjuder följande API-routes</p>
+
+    <p>/api/quote (GET) -> Ett slumpmässigt citat</p>
+    <p>/api/deck (GET) -> En hel kortlek</p>
+    <p>/api/deck/shuffle (POST) -> En blandad kortlek</p>
+    <p>/api/deck/draw (POST) -> Ett draget kort samt totala mängden kort som finns kvar i kortleken</p>
+    <p>/api/deck/draw/:number (POST) -> :number dragna kort samt totala mängden kort som finns kvar i kortleken</p>
+{% endblock %}

@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 use App\Card\DeckOfCards;
-use App\Card;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
