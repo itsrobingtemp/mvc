@@ -64,4 +64,46 @@
     <h2>Vilken är din TIL för detta kmom?</h2>
 
     <p>Min TIL är faktiskt Ubuntu i WSL2, som jag inte har haft koll på innan. Det fungerar väldigt smidigt än så länge.</p>
+
+    <hr>
+
+    <h1><a href="#kmom02">Kmom02</a></h1>
+    <h2>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</h2>
+
+    <h3>Arv</h3>
+    <p>
+      När en klass ärver av en annan klass skickas basklassens attribut och metoder över till den ärvande klassen, som sedan kan modifiera dessa eller lägga till fler attribut och metoder.
+    </p>
+
+    <h3>Komposition</h3>
+    <p>
+      Vid komposition "äger" en klass en annan klass, dvs. den ägda klassen skulle inte existera utan den ägande klassen.
+    </p>
+
+    <h3>Interface</h3>
+    <p>
+      Med interface tvingar man en klass som "implement:ar" interfacet att innehålla specifika metoder.
+    </p>
+
+    <h3>Trait</h3>
+    <p>
+      Trait är ett sätt att återanvända attribut och metoder mellan flera klasser utan att ha en "basklass" som vid arv.
+    </p>
+
+    <h2>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</h2>
+
+    <p>Jag är hyfsat nöjd med min implementation gällande klasserna. Dock tycker jag själv att jag skulle kunnat lösa korten och dess attribut på ett snyggare sätt, eftersom 
+    jag nu använder mig av arrayer där jag tvingas hålla koll på vilket index som är vilket, t.ex. index 0 är kortets value och index 1 är kortets suit.</p>
+
+    <p>Jag skulle även kunna återanvända kod på ett bättre sätt mellan template-filerna, men detta är något jag får se till att spendera mera tid på i fortsättningen.</p>
+
+    <h2>Vilka är dina refelktioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</h2>
+
+    <p>
+      MVC-tänket känns rätt logiskt att hålla koll på, och verkar fungera smidigt i Symfony, så det kan jag inte klaga på. Dock tar Symfony väldigt lång tid på sig att ladda mellan uppdateringar i koden, något som jag försökt lösa men inte hittat en lösning på ännu. Sättet jag kör Symfony & PHP på med WSL2 och Ubuntu kanske inte är optimalt.
+    </p>
+
+    <h2>Vilken är din TIL för detta kmom?</h2>
+
+    <p>Min TIL är att jag lärt mig mer om hur interface och trait fungerar i PHP.</p>
 {% endblock %}
