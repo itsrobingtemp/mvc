@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Card\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends AbstractController
-{   
+{
     #[Route('/api', name: 'api_home')]
     public function api_home(): Response
     {
@@ -41,7 +42,7 @@ class ApiController extends AbstractController
     #[Route('/api/shuffle', name: 'api_shuffle', methods: ['GET', 'POST'])]
     public function api_shuffle(SessionInterface $session): Response
     {
-         // Reset & set session
+        // Reset & set session
         $session->set('current_cards', null);
         $currentCards = $session->get('current_cards', []);
 
