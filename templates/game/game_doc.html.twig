@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Doc{% endblock %}
+
+{% block body %}
+    <h1>Game Doc</h1>
+    <p>
+      Tanken jag har innan start är att använda mina färdiga klasser (Card, CardGraphic, DeckOfCards) och skapa
+      en ny class "Game" som innehåller logiken för spelet. Denna klass skall innehålla så mycket av logiken som
+      möjligt så jag kan hålla mina controllers så små som möjliga.
+    </p>
+
+    <p>
+     Jag tänker mig att det skulle fungera som följande:  
+    </p>
+
+    <p>
+      - Jag sparar all data om spelet i en session-variabel (array), dvs. spelarens poäng, datorns poäng, draget kort, vems tur det är
+      och om det finns en vinnare eller inte.
+    </p>
+
+    <p>
+      - Vid varje sidbyte kan jag skicka in session-variabeln då objektet av Game-klassen skapas.
+    </p> 
+
+    <p>
+      - Om det är spelarens tur dras ett nytt kort vid klick på en knapp (och en POST till en sida som drar nytt kort) och läggs till i spelarens poäng. 
+      Jag borde även kalla på en metod innan varje drag som ser till om poängen gått över 21 eller inte. Går det över 21 läggs datorn som vinnare.
+    </p>
+
+    <p>
+      - Om det är datorns tur har jag en metod som kör en while loop och drar kort / samlar poäng tills det når 17. Detta gör den vid en POST till en sida
+      efter att spelaren klickat stanna. Även här kollar jag om poängen går över 21 eller inte. Går det över 21 läggs spelaren som vinnare.
+    </p>
+
+    <p>
+      - Om det finns en vinnare eller om spelaren stannat och datorn är klar körs en metod som verifierar vinnare.
+    </p> 
+
+    <p>
+      - I template-filen skriver jag ut vem som vunnit och hur många poäng båda fick.
+    </p>
+
+    <h2>Klasser</h2>
+
+    <p>De nya klasserna som behövs skapas är:</p>
+
+    <h3>Game</h3>
+    <p>Game-klassen innehåller logiken för att spela spelet. All data sparas i en array som sparas i session, för att sedan hämtas
+    ur session, skickas in i klassen och fortsätta spelet.</p>
+
+    <h3>Player & Computer</h3>
+    <p>Det kan säkert vara användbart att dela upp en del av koden i en Player och i en Computer-klass. Är inte helt säkert om detta behövs än.</p>
+{% endblock %}
