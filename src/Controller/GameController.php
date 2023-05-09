@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Controller;
+use App\Card\DeckOfCards;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,8 +23,14 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/start', name: 'game_start')]
-    public function game_start(): Response
+    public function game_start(SessionInterface $session): Response
     {
+        if (empty($session->get('current_game', []))) {
+            $session->set('current_game', []);
+        }
+
+        // $tw = new TwentyOne($_SESSION["currentGame"]);
+
         $data = [
         ];
 
