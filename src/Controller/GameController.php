@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\Card\DeckOfCards;
+use App\Card\TwentyOne;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -29,7 +29,8 @@ class GameController extends AbstractController
             $session->set('current_game', []);
         }
 
-        // $tw = new TwentyOne($_SESSION["currentGame"]);
+        $tw = new TwentyOne($_SESSION["currentGame"]);
+        $session->set('current_game', $tw->getCurrentGame());
 
         $data = [
         ];
