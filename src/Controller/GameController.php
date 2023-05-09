@@ -37,4 +37,34 @@ class GameController extends AbstractController
 
         return $this->render('game/game_start.html.twig', $data);
     }
+
+    #[Route('/game/draw', name: 'game_draw')]
+    public function game_draw(SessionInterface $session): Response
+    {   
+        $tw = new TwentyOne($_SESSION["current_game"]);
+        $tw->playerDraw();
+        
+        $session->set('current_game', $tw->getCurrentGame());
+
+        return $this->redirectToRoute('some_route_name');
+    }
+
+    #[Route('/game/stay', name: 'game_stay')]
+    public function game_stay(SessionInterface $session): Response
+    {   
+        $tw = new TwentyOne($_SESSION["current_game"]);
+        $tw->computerDraw();
+
+        $session->set('current_game', $tw->getCurrentGame());
+
+        return $this->redirectToRoute('some_route_name');
+    }
+
+    #[Route('/game/reset', name: 'game_reset')]
+    public function game_reset(SessionInterface $session): Response
+    {   
+        $session->set('current_game', []);
+
+        return $this->redirectToRoute('some_route_name');
+    }
 }
