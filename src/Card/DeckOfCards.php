@@ -6,48 +6,53 @@ class DeckOfCards
 {
     private $cards;
     private $drawnCards;
+    private $suits;
+    private $values;
 
     public function __construct($drawnCards = [])
     {
-        $this->cards = array();
+        $this->suits = array("spades", "hearts", "clubs", "diamonds");
+        $this->values = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
         $this->drawnCards = $drawnCards;
-        $this->createDeck();
+        $this->cards = array();
+
+        // Either create full deck or exclude drawn cards
+        if (empty($this->drawnCards)) {
+          $this->createFullDeck();
+        } else {
+          $this->createDeckWithDrawnCards();
+        }
     }
 
-    public function createDeck()
+    public function createFullDeck() 
     {
-        $this->cards = array();
-        $suits = array("spades", "hearts", "clubs", "diamonds");
-        $values = array("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King");
-
-        // No cards drawn
-        if (empty($this->drawnCards)) {
-            foreach ($suits as $suit) {
-                foreach ($values as $value) {
-                    $card = new CardGraphic($value, $suit);
-                    $this->cards[] = $card->getGraphic();
-                }
-            }
-        } else {
-            foreach ($suits as $suit) {
-                foreach ($values as $value) {
-                    $newCard = new CardGraphic($value, $suit);
-                    $cardExists = false;
-
-                    // If card exists
-                    foreach ($this->drawnCards as $drawnCard) {
-                        if ($drawnCard[4] == $value && $drawnCard[3] == $suit) {
-                            $cardExists = true;
-                            break;
-                        }
-                    }
-
-                    if (!$cardExists) {
-                        $this->cards[] = $newCard->getGraphic();
-                    }
-                }
-            }
+      foreach ($this->suits as $suit) {
+        foreach ($this->values as $value) {
+            $card = new CardGraphic($value, $suit);
+            $this->cards[] = $card->getCardGraphic();
         }
+      }
+    }
+
+    public function createDeckWithDrawnCards()
+    {
+      foreach ($this->suits as $suit) {
+          foreach ($this->values as $value) {
+              $newCard = new CardGraphic($value, $suit);
+              $cardExists = false;
+
+              foreach ($this->drawnCards as $drawnCard) {
+                  if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
+                      $cardExists = true;
+                      break;
+                  }
+              }
+
+              if (!$cardExists) {
+                  $this->cards[] = $newCard->getCardGraphic();
+              }
+          }
+      }
     }
 
     public function getNumberCards($num)
@@ -68,7 +73,6 @@ class DeckOfCards
 
     public function shuffleDeck()
     {
-        $this->createDeck();
         shuffle($this->cards);
     }
 

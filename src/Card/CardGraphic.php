@@ -4,19 +4,19 @@ namespace App\Card;
 
 class CardGraphic extends Card
 {
-    private $graphicArr;
+    private $cardGraphic;
 
     public function __construct($suit, $value)
     {
         parent::__construct($suit, $value);
-        $this->graphicArr = $this->setGraphic($suit, $value);
+        $this->cardGraphic = $this->setCardGraphic($suit, $value);
     }
 
-    public function setGraphic($value, $suit)
+    public function setCardGraphic($value, $suit)
     {
         $suitString = "";
         $valueString = "";
-        $color = "";
+        $colorString = "";
 
         switch ($suit) {
             case "hearts":
@@ -47,30 +47,37 @@ class CardGraphic extends Card
                 $valueString = "K";
                 break;
             default:
+                // Ints as string
                 $valueString = (string)$value;
                 break;
         }
 
         switch($suit) {
             case "hearts":
-                $color = "red";
+                $colorString = "red";
                 break;
             case "diamonds":
-                $color = "red";
+                $colorString = "red";
                 break;
             case "clubs":
-                $color = "black";
+                $colorString = "black";
                 break;
             case "spades":
-                $color = "black";
+                $colorString = "black";
                 break;
         }
 
-        return array($valueString, $suitString, $color, $suit, $value);
+        return array(
+          "suitString" => $suitString, 
+          "valueString" => $valueString, 
+          "colorString" => $colorString, 
+          "suit" => $suit, 
+          "value" => $value
+        );
     }
 
-    public function getGraphic()
+    public function getCardGraphic()
     {
-        return $this->graphicArr;
+        return $this->cardGraphic;
     }
 }

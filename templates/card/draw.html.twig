@@ -9,10 +9,10 @@
     <p>Nuvarande kort i kortleken: {{ count }}</p>
 
     <div class="cards">
-      <div class="card {{card[2]}}">
-        <div class="card__item">{{ card[1] }}</div>
-        <div class="card__item">{{ card[0] }}</div>
-        <div class="card__item">{{ card[1] }}</div>
+      <div class="card {{card["colorString"]}}">
+        <div class="card__item">{{ card["suitString"] }}</div>
+        <div class="card__item">{{ card["valueString"] }}</div>
+        <div class="card__item">{{ card["suitString"] }}</div>
       </div>
     </div>
 
