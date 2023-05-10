@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block body %}
+    <h1>21</h1>
+
+    {% if finishedRound %}
+      <h2>Resultat</h2>
+
+      <p>{{ resultString }}</p>
+    {% else %}
+
+    <p>Du drog följande kort: </p>
+
+    <div class="cards">
+      <div class="card {{card["colorString"]}}">
+        <div class="card__item">{{ card["suitString"] }}</div>
+        <div class="card__item">{{ card["valueString"] }}</div>
+        <div class="card__item">{{ card["suitString"] }}</div>
+      </div>
+    </div>
+
+    <div>
+      <p>Dina nuvarande poäng: {{ playerScore }}</p>
+      <p>Datorns nuvarande poäng: {{ computerScore }}</p>
+    </div>
+    {# {{ dump(data) }} #}
+    <div class="cards">
+      <a href="{{ path('game_draw') }}">Dra ett till kort</a>
+      <a href="{{ path('game_stay') }}">Stanna</a>
+    </div>
+    {% endif %}
+
+    <a href="{{ path('game_reset') }}">Reset</a>
+{% endblock %}
