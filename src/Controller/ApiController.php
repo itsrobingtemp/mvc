@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends AbstractController
 {
-    #[Route('/api', name: 'api_home')]
-    public function api_home(): Response
+    #[Route('/api', name: 'apiHome')]
+    public function apiHome(): Response
     {
         return $this->render('api/api_home.html.twig');
     }
 
-    #[Route('/api/deck', name: 'api_deck')]
-    public function api_deck(SessionInterface $session): Response
+    #[Route('/api/deck', name: 'apiDeck')]
+    public function apiDeck(SessionInterface $session): Response
     {
         $currentCards = $session->get('current_cards', []);
 
@@ -40,8 +40,8 @@ class ApiController extends AbstractController
         return $response;
     }
 
-    #[Route('/api/shuffle', name: 'api_shuffle', methods: ['GET', 'POST'])]
-    public function api_shuffle(SessionInterface $session): Response
+    #[Route('/api/shuffle', name: 'apiShuffle', methods: ['GET', 'POST'])]
+    public function apiShuffle(SessionInterface $session): Response
     {
         // Reset & set session
         $session->set('current_cards', null);
@@ -64,8 +64,8 @@ class ApiController extends AbstractController
         return $response;
     }
 
-    #[Route('/api/draw', name: 'api_draw', methods: ['GET', 'POST'])]
-    public function api_draw(SessionInterface $session): Response
+    #[Route('/api/draw', name: 'apiDraw', methods: ['GET', 'POST'])]
+    public function apiDraw(SessionInterface $session): Response
     {
         $currentCards = $session->get('current_cards', []);
 
@@ -91,8 +91,8 @@ class ApiController extends AbstractController
         return $response;
     }
 
-    #[Route('/api/draw/{num}', name: 'api_draw_number', methods: ['POST'])]
-    public function api_draw_number(array $_route_params, SessionInterface $session): Response
+    #[Route('/api/draw/{num}', name: 'apiDrawNumber', methods: ['POST'])]
+    public function apiDrawNumber(array $_route_params, SessionInterface $session): Response
     {
         $num = $_route_params['num'];
         $currentCards = $session->get('current_cards', []);
@@ -151,11 +151,11 @@ class ApiController extends AbstractController
     }
 
 
-    #[Route('/api/game', name: 'api_game')]
-    public function api_game(SessionInterface $session): Response
+    #[Route('/api/game', name: 'apiGame')]
+    public function apiGame(SessionInterface $session): Response
     {
-        $tw = new TwentyOne($session->get("current_game"));
-        $gameData = $tw->getCurrentGame();
+        $twentyOne = new TwentyOne($session->get("current_game"));
+        $gameData = $twentyOne->getCurrentGame();
 
         $data = [
             'playerScore' => $gameData["playerScore"],

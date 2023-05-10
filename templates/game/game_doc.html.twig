@@ -4,6 +4,9 @@
 
 {% block body %}
     <h1>Game Doc</h1>
+
+    <img src="{{ asset('img/flowchart.jpg') }}" alt="Flow chart">
+
     <p>
       Tanken jag har innan start är att använda mina färdiga klasser (Card, CardGraphic, DeckOfCards) och skapa
       en ny class "Game" som innehåller logiken för spelet. Denna klass skall innehålla så mycket av logiken som
@@ -40,15 +43,28 @@
     <p>
       - I template-filen skriver jag ut vem som vunnit och hur många poäng båda fick.
     </p>
-
+    
     <h2>Klasser</h2>
 
-    <p>De nya klasserna som behövs skapas är:</p>
+    Nya klasser för detta spel:
 
-    <h3>Game</h3>
-    <p>Game-klassen innehåller logiken för att spela spelet. All data sparas i en array som sparas i session, för att sedan hämtas
+    <h3>TwentyOne</h3>
+    <p>
+      TwentyOne håller reda på spelets gång. Den innehåller metoder för att dra kort och lagra poäng, samt verifierar
+      om någon vunnit eller förlorat. All data sparas i en array som kan skickas både ut och in ur klassen.
+    </p>
+
+    <h3>Player</h3>
+    <p>Player-klassen är en basklass som innehåller en spelares (spelare eller dator) poäng.</p>
+
+    <h3>ActualPlayer</h3>
+    <p>ActualPlayer ärver från Player och innehåller en extra metod som används när en spelare drar ett kort.</p>
+
+    <h3>ComputerPlayer</h3>
+    <p>ComputerPlayer ärver från Player och innehåller logik för när datorn skall dra sina kort.</p>
+
+    <h3>TwentyOne</h3>
+    <p>TwentyOne-klassen innehåller logiken för att spela spelet. All data sparas i en array som sparas i session, för att sedan hämtas
     ur session, skickas in i klassen och fortsätta spelet.</p>
 
-    <h3>Player & Computer</h3>
-    <p>Det kan säkert vara användbart att dela upp en del av koden i en Player och i en Computer-klass. Är inte helt säkert om detta behövs än.</p>
 {% endblock %}

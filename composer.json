@@ -1,4 +1,6 @@
 {
+  "name": "rogr19/report",
+  "description": "Some description",
   "type": "project",
   "license": "proprietary",
   "minimum-stability": "stable",
@@ -90,6 +92,12 @@
       "cache:clear": "symfony-cmd",
       "assets:install %PUBLIC_DIR%": "symfony-cmd"
     },
+    "phpmd": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml || true",
+    "phpstan": "tools/phpstan/vendor/bin/phpstan || true",
+    "lint": [
+      "@phpmd",
+      "@phpstan"
+    ],
     "post-install-cmd": [
       "@auto-scripts"
     ],

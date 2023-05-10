@@ -9,31 +9,9 @@
     <p>Korten är värda sitt värde 2-13, med undantag Ess som är värt antingen 1 eller 14.</p>
 
     <nav>
-      <a href="{{ path('game_draw') }}">Starta spelet</a>
+      <a href="{{ path('gameDraw') }}">Starta spelet</a>
+      <a href="{{ path('gameDoc') }}">Dokumentation</a>
     </nav>
 
-    <h2>Klasser</h2>
-
-    <img src="{{ asset('img/uml--cards.png') }}" alt="UML">
-
-    Klasserna som används i detta spel är följande:
-
-    <h3>Card</h3>
-    <p>Card-klassen är grunden för att skapa ett kort. Den instansieras med "suit" och "value", och har två metoder
-    som returnerar dessa.</p>
-
-    <h3>CardGraphic</h3>
-    <p>CardGraphic-klassen innehåller en metod (setGrapic) som formaterar om bl.a. suit till en unicode-symbol, samt 
-    formaterar ess, kneckt, kung osv till bokstäver. Dessutom ger den en färg för de röda och svarta suits:en, som jag
-    sedan kan använda som CSS-klass för att visuellt visa färgen på kortet.</p>
-
-    <h3>DeckOfCards</h3>
-    <p>DeckOfCards-klassen innehåller ett flertal metoder för att jobbat med korten i applikationen. Den tar in 
-    en parameter "drawnCards", innehållande kort från sessionen som den sedan kan räkna bort när ett nytt deck skapas. Detta 
-    sker i metoden "createDeck".
-    "getCards", "getNumberCards", "getRandomCard" och "shuffleDeck" är rätt självförklarande metoder.</p>
-
-    <h3>Game</h3>
-    Game-klassen innehåller logiken för att spela spelet. All data sparas i en array som sparas i session, för att sedan hämtas
-    ur session, skickas in i klassen och fortsätta spelet.
+    
 {% endblock %}

@@ -18,44 +18,44 @@ class DeckOfCards
 
         // Either create full deck or exclude drawn cards
         if (empty($this->drawnCards)) {
-          $this->createFullDeck();
+            $this->createFullDeck();
         } else {
-          $this->createDeckWithDrawnCards();
+            $this->createDeckWithDrawnCards();
         }
     }
 
-    public function createFullDeck() 
+    public function createFullDeck() : void
     {
-      foreach ($this->suits as $suit) {
-        foreach ($this->values as $value) {
-            $card = new CardGraphic($value, $suit);
-            $this->cards[] = $card->getCardGraphic();
+        foreach ($this->suits as $suit) {
+            foreach ($this->values as $value) {
+                $card = new CardGraphic($value, $suit);
+                $this->cards[] = $card->getCardGraphic();
+            }
         }
-      }
     }
 
-    public function createDeckWithDrawnCards()
+    public function createDeckWithDrawnCards() : void
     {
-      foreach ($this->suits as $suit) {
-          foreach ($this->values as $value) {
-              $newCard = new CardGraphic($value, $suit);
-              $cardExists = false;
+        foreach ($this->suits as $suit) {
+            foreach ($this->values as $value) {
+                $newCard = new CardGraphic($value, $suit);
+                $cardExists = false;
 
-              foreach ($this->drawnCards as $drawnCard) {
-                  if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
-                      $cardExists = true;
-                      break;
-                  }
-              }
+                foreach ($this->drawnCards as $drawnCard) {
+                    if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
+                        $cardExists = true;
+                        break;
+                    }
+                }
 
-              if (!$cardExists) {
-                  $this->cards[] = $newCard->getCardGraphic();
-              }
-          }
-      }
+                if (!$cardExists) {
+                    $this->cards[] = $newCard->getCardGraphic();
+                }
+            }
+        }
     }
 
-    public function getNumberCards($num)
+    public function getNumberCards($num) : array
     {
         $cards = array();
 
@@ -66,29 +66,29 @@ class DeckOfCards
         return $cards;
     }
 
-    public function getCards()
+    public function getCards() : array
     {
         return $this->cards;
     }
 
-    public function shuffleDeck()
+    public function shuffleDeck() : void
     {
         shuffle($this->cards);
     }
 
-    public function getRandomCard()
+    public function getRandomCard() : array
     {
-        $i = rand(0, count($this->cards) - 1);
-        $randomCard = $this->cards[$i];
+        $index = rand(0, count($this->cards) - 1);
+        $randomCard = $this->cards[$index];
 
         return $randomCard;
     }
 
-    public function removeCardAndReturnDeck($cardToBeRemoved)
+    public function removeCardAndReturnDeck($cardToBeRemoved) : array
     {
         foreach ($this->cards as $index => $card) {
             if ($card->getSuit() === $cardToBeRemoved->getSuit() && $card->getValue() === $cardToBeRemoved->getValue()) {
-                unset($cards[$index]);
+                unset($this->cards[$index]);
                 break;
             }
         }

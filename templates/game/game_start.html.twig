@@ -25,12 +25,12 @@
       <p>Dina nuvarande poäng: {{ playerScore }}</p>
       <p>Datorns nuvarande poäng: {{ computerScore }}</p>
     </div>
-    {# {{ dump(data) }} #}
+
     <div class="cards">
-      <a href="{{ path('game_draw') }}">Dra ett till kort</a>
-      <a href="{{ path('game_stay') }}">Stanna</a>
+      <a href="{{ path('gameDraw') }}">Dra ett till kort</a>
+      <a href="{{ path('gameStay') }}">Stanna</a>
     </div>
     {% endif %}
 
-    <a href="{{ path('game_reset') }}">Reset</a>
+    <a href="{{ path('gameReset') }}">Reset</a>
 {% endblock %}

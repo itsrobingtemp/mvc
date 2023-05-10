@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Card\TwentyOne;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,23 +18,23 @@ class GameController extends AbstractController
             $session->set('current_game', []);
         }
 
-        $tw = new TwentyOne($session->get("current_game"));
-        $session->set('current_game', $tw->getCurrentGame());
+        $game = new TwentyOne($session->get("current_game"));
+        $session->set('current_game', $game->getCurrentGame());
 
         return $this->render('game/game.html.twig');
     }
 
-    #[Route('/game/doc', name: 'game_doc')]
-    public function game_doc(): Response
+    #[Route('/game/doc', name: 'gameDoc')]
+    public function gameDoc(): Response
     {
         return $this->render('game/game_doc.html.twig');
     }
 
-    #[Route('/game/start', name: 'game_start')]
-    public function game_start(SessionInterface $session): Response
+    #[Route('/game/start', name: 'gameStart')]
+    public function gameStart(SessionInterface $session): Response
     {
-        $tw = new TwentyOne($session->get("current_game"));
-        $gameData = $tw->getCurrentGame();
+        $game = new TwentyOne($session->get("current_game"));
+        $gameData = $game->getCurrentGame();
 
         $data = [
             'playerScore' => $gameData["playerScore"],
@@ -48,33 +49,33 @@ class GameController extends AbstractController
         return $this->render('game/game_start.html.twig', $data);
     }
 
-    #[Route('/game/draw', name: 'game_draw')]
-    public function game_draw(SessionInterface $session): Response
-    {   
-        $tw = new TwentyOne($session->get("current_game"));
-        $tw->playerDraw();
-        
-        $session->set('current_game', $tw->getCurrentGame());
+    #[Route('/game/draw', name: 'gameDraw')]
+    public function gameDraw(SessionInterface $session): Response
+    {
+        $game = new TwentyOne($session->get("current_game"));
+        $game->playerDraw();
 
-        return $this->redirectToRoute('game_start');
+        $session->set('current_game', $game->getCurrentGame());
+
+        return $this->redirectToRoute('gameStart');
     }
 
-    #[Route('/game/stay', name: 'game_stay')]
-    public function game_stay(SessionInterface $session): Response
-    {   
-        $tw = new TwentyOne($session->get("current_game"));
-        $tw->computerDraw();
+    #[Route('/game/stay', name: 'gameStay')]
+    public function gameStay(SessionInterface $session): Response
+    {
+        $game = new TwentyOne($session->get("current_game"));
+        $game->computerDraw();
 
-        $session->set('current_game', $tw->getCurrentGame());
+        $session->set('current_game', $game->getCurrentGame());
 
-        return $this->redirectToRoute('game_start');
+        return $this->redirectToRoute('gameStart');
     }
 
-    #[Route('/game/reset', name: 'game_reset')]
-    public function game_reset(SessionInterface $session): Response
-    {   
+    #[Route('/game/reset', name: 'gameReset')]
+    public function gameReset(SessionInterface $session): Response
+    {
         $session->remove('current_game');
 
-        return $this->redirectToRoute('game_draw');
+        return $this->redirectToRoute('gameDraw');
     }
 }

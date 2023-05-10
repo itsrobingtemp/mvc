@@ -1,19 +1,23 @@
 <?php
+
 namespace App\Card;
 
-class Player 
+class Player
 {
-  private $score;
+    private $score;
 
-  public function __construct($score) {
-    $this->score = $score;
-  }
-  
-  public function getScore() {
-    return $this->score;
-  }
+    public function __construct($score)
+    {
+        $this->score = $score;
+    }
 
-  public function setScore($score) {
-    $this->score = $score;
-  }
+    public function getScore() : int
+    {
+        return $this->score;
+    }
+
+    public function setScore($score) : void
+    {
+        $this->score = $score;
+    }
 }
