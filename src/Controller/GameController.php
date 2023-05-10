@@ -53,6 +53,7 @@ class GameController extends AbstractController
     public function gameDraw(SessionInterface $session): Response
     {
         $game = new TwentyOne($session->get("current_game"));
+
         $game->playerDraw();
 
         $session->set('current_game', $game->getCurrentGame());

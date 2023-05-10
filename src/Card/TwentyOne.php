@@ -21,7 +21,7 @@ class TwentyOne
         }
     }
 
-    public function playerDraw() : void
+    public function playerDraw(): void
     {
         $player = new ActualPlayer($this->game["playerScore"]);
         $card = $player->draw();
@@ -31,7 +31,7 @@ class TwentyOne
         $this->verifyPlayerRound();
     }
 
-    public function computerDraw() : void
+    public function computerDraw(): void
     {
         $computer = new ComputerPlayer($this->game["computerScore"]);
         $computer->draw();
@@ -40,12 +40,12 @@ class TwentyOne
         $this->verifyComputerRound();
     }
 
-    public function getCurrentGame() : array
+    public function getCurrentGame(): array
     {
         return $this->game;
     }
 
-    public function verifyPlayerRound() : void
+    public function verifyPlayerRound(): void
     {
         if ($this->game["playerScore"] > 21) {
             $this->game["finishedRound"] = true;
@@ -53,7 +53,7 @@ class TwentyOne
         }
     }
 
-    public function verifyComputerRound() : void
+    public function verifyComputerRound(): void
     {
         $finished = false;
         $resultString = "";

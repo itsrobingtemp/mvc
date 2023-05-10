@@ -9,7 +9,7 @@ class ActualPlayer extends Player
         parent::__construct($score);
     }
 
-    public function draw() : array
+    public function draw(): array
     {
         $deck = new DeckOfCards();
         $card = $deck->getRandomCard();

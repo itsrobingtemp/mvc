@@ -9,7 +9,7 @@ class ComputerPlayer extends Player
         parent::__construct($score);
     }
 
-    public function draw() : void
+    public function draw(): void
     {
         $deck = new DeckOfCards();
         $loopScore = 0;

@@ -24,7 +24,7 @@ class DeckOfCards
         }
     }
 
-    public function createFullDeck() : void
+    public function createFullDeck(): void
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
@@ -34,7 +34,7 @@ class DeckOfCards
         }
     }
 
-    public function createDeckWithDrawnCards() : void
+    public function createDeckWithDrawnCards(): void
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
@@ -55,7 +55,7 @@ class DeckOfCards
         }
     }
 
-    public function getNumberCards($num) : array
+    public function getNumberCards($num): array
     {
         $cards = array();
 
@@ -66,17 +66,17 @@ class DeckOfCards
         return $cards;
     }
 
-    public function getCards() : array
+    public function getCards(): array
     {
         return $this->cards;
     }
 
-    public function shuffleDeck() : void
+    public function shuffleDeck(): void
     {
         shuffle($this->cards);
     }
 
-    public function getRandomCard() : array
+    public function getRandomCard(): array
     {
         $index = rand(0, count($this->cards) - 1);
         $randomCard = $this->cards[$index];
@@ -84,7 +84,7 @@ class DeckOfCards
         return $randomCard;
     }
 
-    public function removeCardAndReturnDeck($cardToBeRemoved) : array
+    public function removeCardAndReturnDeck($cardToBeRemoved): array
     {
         foreach ($this->cards as $index => $card) {
             if ($card->getSuit() === $cardToBeRemoved->getSuit() && $card->getValue() === $cardToBeRemoved->getValue()) {

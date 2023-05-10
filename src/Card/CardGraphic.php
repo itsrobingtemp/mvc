@@ -12,7 +12,7 @@ class CardGraphic extends Card
         $this->cardGraphic = $this->setCardGraphic($suit, $value);
     }
 
-    public function setCardGraphic($value, $suit) : array
+    public function setCardGraphic($value, $suit): array
     {
         $suitString = "";
         $valueString = "";
@@ -76,7 +76,7 @@ class CardGraphic extends Card
         );
     }
 
-    public function getCardGraphic() : array
+    public function getCardGraphic(): array
     {
         return $this->cardGraphic;
     }
