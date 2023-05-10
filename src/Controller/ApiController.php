@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Card\DeckOfCards;
+use App\Card\TwentyOne;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -149,18 +150,27 @@ class ApiController extends AbstractController
         return $response;
     }
 
-    // TODO: Get game data from session
-    #[Route('/api/game', name: 'game')]
-    public function api_game(): Response
+
+    #[Route('/api/game', name: 'api_game')]
+    public function api_game(SessionInterface $session): Response
     {
+        $tw = new TwentyOne($session->get("current_game"));
+        $gameData = $tw->getCurrentGame();
+
         $data = [
+            'playerScore' => $gameData["playerScore"],
+            'computerScore' => $gameData["computerScore"],
+            'card' => $gameData["currentCard"],
+            'finishedRound' => $gameData["finishedRound"],
+            'resultString' => $gameData["resultString"]
         ];
 
         $response = new JsonResponse($data);
+
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
-        
+
         return $response;
     }
 }
