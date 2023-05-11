@@ -99,6 +99,7 @@
       "@phpstan"
     ],
     "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit",
+    "phpdoc": "tools/phpdoc/phpdoc",
     "post-install-cmd": [
       "@auto-scripts"
     ],
