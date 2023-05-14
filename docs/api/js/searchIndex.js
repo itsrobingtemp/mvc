@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\App\\Card\\ActualPlayer",
             "name": "ActualPlayer",
-            "summary": "",
+            "summary": "The\u0020class\u0020of\u0020an\u0020\u0022actual\u0022\u0020player\u0020of\u002021",
             "url": "classes/App-Card-ActualPlayer.html"
         },                {
             "fqsen": "\\App\\Card\\ActualPlayer\u003A\u003A__construct\u0028\u0029",
@@ -13,12 +13,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\ActualPlayer\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020card\u0020array",
             "url": "classes/App-Card-ActualPlayer.html#method_draw"
         },                {
             "fqsen": "\\App\\Card\\Card",
             "name": "Card",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020Card\u0020for\u0020virtual\u0020card\u0020games",
             "url": "classes/App-Card-Card.html"
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003A__construct\u0028\u0029",
@@ -28,12 +28,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020value\u0020of\u0020the\u0020card",
             "url": "classes/App-Card-Card.html#method_getValue"
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003AgetSuit\u0028\u0029",
             "name": "getSuit",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020suit\u0020of\u0020the\u0020card",
             "url": "classes/App-Card-Card.html#method_getSuit"
         },                {
             "fqsen": "\\App\\Card\\Card\u003A\u003A\u0024suit",
@@ -48,7 +48,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardGraphic",
             "name": "CardGraphic",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020graphic\u0020card\u0020for\nvirtual\u0020card\u0020games",
             "url": "classes/App-Card-CardGraphic.html"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003A__construct\u0028\u0029",
@@ -58,12 +58,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AsetCardGraphic\u0028\u0029",
             "name": "setCardGraphic",
-            "summary": "",
+            "summary": "Makes\u0020a\u0020graphic\u0020representation\u0020of\u0020the\u0020card",
             "url": "classes/App-Card-CardGraphic.html#method_setCardGraphic"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetCardGraphic\u0028\u0029",
             "name": "getCardGraphic",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020graphic\u0020card\u0020array",
             "url": "classes/App-Card-CardGraphic.html#method_getCardGraphic"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003A\u0024cardGraphic",
@@ -73,7 +73,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\ComputerPlayer",
             "name": "ComputerPlayer",
-            "summary": "",
+            "summary": "Represents\u0020the\u0020computer\u0020player\u0020in\u002021",
             "url": "classes/App-Card-ComputerPlayer.html"
         },                {
             "fqsen": "\\App\\Card\\ComputerPlayer\u003A\u003A__construct\u0028\u0029",
@@ -83,12 +83,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\ComputerPlayer\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
-            "summary": "",
+            "summary": "Draws\u0020a\u0020card\u0020and\u0020sets\u0020the\u0020score",
             "url": "classes/App-Card-ComputerPlayer.html#method_draw"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards",
             "name": "DeckOfCards",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020deck\u0020of\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003A__construct\u0028\u0029",
@@ -98,37 +98,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AcreateFullDeck\u0028\u0029",
             "name": "createFullDeck",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020full\u0020deck\u0020of\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_createFullDeck"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AcreateDeckWithDrawnCards\u0028\u0029",
             "name": "createDeckWithDrawnCards",
-            "summary": "",
+            "summary": "Creates\u0020a\u0020new\u0020deck\u0020of\u0020cards\u0020excluding\u0020drawn\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_createDeckWithDrawnCards"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AgetNumberCards\u0028\u0029",
             "name": "getNumberCards",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020number\u0020of\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_getNumberCards"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AgetCards\u0028\u0029",
             "name": "getCards",
-            "summary": "",
+            "summary": "Retuurns\u0020all\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_getCards"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AshuffleDeck\u0028\u0029",
             "name": "shuffleDeck",
-            "summary": "",
+            "summary": "Shuffles\u0020the\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_shuffleDeck"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AgetRandomCard\u0028\u0029",
             "name": "getRandomCard",
-            "summary": "",
+            "summary": "Draws\u0020a\u0020random\u0020card",
             "url": "classes/App-Card-DeckOfCards.html#method_getRandomCard"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AremoveCardAndReturnDeck\u0028\u0029",
             "name": "removeCardAndReturnDeck",
-            "summary": "",
+            "summary": "Removes\u0020cards\u0020from\u0020deck",
             "url": "classes/App-Card-DeckOfCards.html#method_removeCardAndReturnDeck"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003A\u0024cards",
@@ -153,7 +153,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Player",
             "name": "Player",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020player\u0020of\u002021",
             "url": "classes/App-Card-Player.html"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A__construct\u0028\u0029",
@@ -163,12 +163,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AgetScore\u0028\u0029",
             "name": "getScore",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020score",
             "url": "classes/App-Card-Player.html#method_getScore"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AsetScore\u0028\u0029",
             "name": "setScore",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020score",
             "url": "classes/App-Card-Player.html#method_setScore"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A\u0024score",
@@ -178,7 +178,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\TwentyOne",
             "name": "TwentyOne",
-            "summary": "",
+            "summary": "Represents\u0020the\u0020game\u0020of\u002021",
             "url": "classes/App-Card-TwentyOne.html"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003A__construct\u0028\u0029",
@@ -188,27 +188,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003AplayerDraw\u0028\u0029",
             "name": "playerDraw",
-            "summary": "",
+            "summary": "Draws\u0020a\u0020card\u0020for\u0020the\u0020player",
             "url": "classes/App-Card-TwentyOne.html#method_playerDraw"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003AcomputerDraw\u0028\u0029",
             "name": "computerDraw",
-            "summary": "",
+            "summary": "Draws\u0020a\u0020full\u0020round\u0020for\u0020the\u0020computer",
             "url": "classes/App-Card-TwentyOne.html#method_computerDraw"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003AgetCurrentGame\u0028\u0029",
             "name": "getCurrentGame",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020current\u0020game\u0020as\u0020an\u0020array",
             "url": "classes/App-Card-TwentyOne.html#method_getCurrentGame"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003AverifyPlayerRound\u0028\u0029",
             "name": "verifyPlayerRound",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020player\u0020goes\u0020over\u002021",
             "url": "classes/App-Card-TwentyOne.html#method_verifyPlayerRound"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003AverifyComputerRound\u0028\u0029",
             "name": "verifyComputerRound",
-            "summary": "",
+            "summary": "Checks\u0020who\u0020the\u0020winner\u0020is",
             "url": "classes/App-Card-TwentyOne.html#method_verifyComputerRound"
         },                {
             "fqsen": "\\App\\Card\\TwentyOne\u003A\u003A\u0024game",

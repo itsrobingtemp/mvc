@@ -2,6 +2,9 @@
 
 namespace App\Card;
 
+/**
+ * Represents a deck of cards
+ */
 class DeckOfCards
 {
     private $cards;
@@ -9,6 +12,9 @@ class DeckOfCards
     private $suits;
     private $values;
 
+    /**
+     * @param array $drawnCards    An array of already drawn cards
+     */
     public function __construct($drawnCards = [])
     {
         $this->suits = array("spades", "hearts", "clubs", "diamonds");
@@ -24,6 +30,9 @@ class DeckOfCards
         }
     }
 
+    /**
+     * Creates a new full deck of cards
+     */
     public function createFullDeck(): void
     {
         foreach ($this->suits as $suit) {
@@ -34,6 +43,9 @@ class DeckOfCards
         }
     }
 
+    /**
+     * Creates a new deck of cards excluding drawn cards
+     */
     public function createDeckWithDrawnCards(): void
     {
         foreach ($this->suits as $suit) {
@@ -55,6 +67,9 @@ class DeckOfCards
         }
     }
 
+    /**
+     * Returns a number of cards
+     */
     public function getNumberCards($num): array
     {
         $cards = array();
@@ -66,16 +81,25 @@ class DeckOfCards
         return $cards;
     }
 
+    /**
+     * Retuurns all cards
+     */
     public function getCards(): array
     {
         return $this->cards;
     }
 
+    /**
+     * Shuffles the cards
+     */
     public function shuffleDeck(): void
     {
         shuffle($this->cards);
     }
 
+    /**
+     * Draws a random card
+     */
     public function getRandomCard(): array
     {
         $index = rand(0, count($this->cards) - 1);
@@ -84,6 +108,9 @@ class DeckOfCards
         return $randomCard;
     }
 
+    /**
+     * Removes cards from deck
+     */
     public function removeCardAndReturnDeck($cardToBeRemoved): array
     {
         foreach ($this->cards as $index => $card) {

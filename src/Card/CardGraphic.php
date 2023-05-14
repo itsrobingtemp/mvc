@@ -2,16 +2,27 @@
 
 namespace App\Card;
 
+/**
+ * Represents a graphic card for
+ * virtual card games
+ */
 class CardGraphic extends Card
 {
     private $cardGraphic;
 
+    /**
+     * @param string $suit    The suit of a card
+     * @param int $value    The value of a card
+     */
     public function __construct($suit, $value)
     {
         parent::__construct($suit, $value);
         $this->cardGraphic = $this->setCardGraphic($suit, $value);
     }
 
+    /**
+     * Makes a graphic representation of the card
+     */
     public function setCardGraphic($value, $suit): array
     {
         $suitString = "";
@@ -76,6 +87,9 @@ class CardGraphic extends Card
         );
     }
 
+    /**
+     * Returns the graphic card array
+     */
     public function getCardGraphic(): array
     {
         return $this->cardGraphic;

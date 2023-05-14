@@ -2,10 +2,16 @@
 
 namespace App\Card;
 
+/**
+ * Represents the game of 21
+ */
 class TwentyOne
 {
     private $game;
 
+    /**
+     * @param array $currentGame    An array of current game data
+     */
     public function __construct($currentGame)
     {
         if (empty($currentGame)) {
@@ -21,6 +27,9 @@ class TwentyOne
         }
     }
 
+    /**
+     * Draws a card for the player
+     */
     public function playerDraw(): void
     {
         $player = new ActualPlayer($this->game["playerScore"]);
@@ -31,6 +40,9 @@ class TwentyOne
         $this->verifyPlayerRound();
     }
 
+    /**
+     * Draws a full round for the computer
+     */
     public function computerDraw(): void
     {
         $computer = new ComputerPlayer($this->game["computerScore"]);
@@ -40,11 +52,17 @@ class TwentyOne
         $this->verifyComputerRound();
     }
 
+    /**
+     * Returns the current game as an array
+     */
     public function getCurrentGame(): array
     {
         return $this->game;
     }
 
+    /**
+     * Checks if player goes over 21
+     */
     public function verifyPlayerRound(): void
     {
         if ($this->game["playerScore"] > 21) {
@@ -53,6 +71,9 @@ class TwentyOne
         }
     }
 
+    /**
+     * Checks who the winner is
+     */
     public function verifyComputerRound(): void
     {
         $finished = false;
