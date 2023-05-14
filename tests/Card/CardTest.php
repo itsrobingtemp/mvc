@@ -9,16 +9,15 @@ use PHPUnit\Framework\TestCase;
  */
 class CardTest extends TestCase
 {
-    /**
-     * Construct object and verify that the object has the expected
-     * properties, use no arguments.
-     */
-    public function testCreateDice()
+    public function testCreateCard()
     {
         $card = new Card("spades", 5);
         $this->assertInstanceOf("\App\Card\Card", $card);
 
         $res = $card->getValue();
         $this->assertNotEmpty($res);
+
+        $res2 = $card->getSuit();
+        $this->assertNotEmpty($res2);
     }
 }
