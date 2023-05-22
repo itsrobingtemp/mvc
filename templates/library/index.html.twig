@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+
+{% block body %}
+    <h1>Bibliotek</h1>
+    <p>Välkommen till mitt bibliotek. Här kan du editera böckerna i databaserna!</p>
+
+    {% for book in books %}
+        <ul>
+            <li>{{book.id}}</li>
+            <li>{{book.title}}</li>
+            <li>{{book.isbn}}</li>
+            <li>{{book.author}}</li>
+            <li>{{book.image}}</li>
+        </ul>
+
+
+    {% endfor %}
+    {# {{dump(books)}} #}
+
+
+    <nav>
+      <a href="{{ path('createBook') }}">Ny bok</a>
+      <a href="{{ path('showBookById/1') }}">Bok med ID 1</a>
+      <a href="{{ path('deleteBookById/1') }}">Radera bok</a>
+      <a href="{{ path('updateBook/1') }}">Uppdatera bok</a>
+    </nav>
+{% endblock %}
