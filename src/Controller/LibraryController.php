@@ -12,8 +12,8 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class LibraryController extends AbstractController
 {
-    #[Route('/library', name: 'books')]
-    public function books(
+    #[Route('/library', name: 'library')]
+    public function library(
         LibraryRepository $libraryRepository
     ): Response
     {   
@@ -85,7 +85,7 @@ class LibraryController extends AbstractController
         $entityManager->remove($book);
         $entityManager->flush();
 
-        return $this->redirectToRoute('showAllBooks');
+        return $this->redirectToRoute('library');
     }
 
     #[Route('/library/update/{id}/{value}', name: 'updateBook')]
@@ -106,6 +106,6 @@ class LibraryController extends AbstractController
         $book->setTitle($value);
         $entityManager->flush();
 
-        return $this->redirectToRoute('showAllBooks');
+        return $this->redirectToRoute('library');
     }
 }
