@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\LibraryRepository;
 
 class ApiController extends AbstractController
 {
@@ -163,6 +164,44 @@ class ApiController extends AbstractController
             'card' => $gameData["currentCard"],
             'finishedRound' => $gameData["finishedRound"],
             'resultString' => $gameData["resultString"]
+        ];
+
+        $response = new JsonResponse($data);
+
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    #[Route('/api/library/books', name: 'apiBooks', methods: ['GET'])]
+    public function apiBooks(LibraryRepository $libraryRepository): Response
+    {
+        $books = $libraryRepository->findAll();
+
+        $data = [
+            'books' => $books
+        ];
+
+        $response = new JsonResponse($data);
+
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+    
+
+    #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]
+    public function apiBooksIsbn(LibraryRepository $libraryRepository, int $isbn): Response
+    {
+        $book = $libraryRepository
+            ->find($isbn);
+
+        $data = [
+            'book' => $book
         ];
 
         $response = new JsonResponse($data);

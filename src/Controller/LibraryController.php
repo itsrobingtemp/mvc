@@ -27,28 +27,13 @@ class LibraryController extends AbstractController
         return $this->render('library/index.html.twig', $data);
     }
 
-    #[Route('/library/show', name: 'showAllBooks')]
-    public function showAllBooks(
-        LibraryRepository $libraryRepository
-    ): Response {
-        $books = $libraryRepository->findAll();
-
-        $response = $this->json($books);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
-    }
-
-    #[Route('/library/show/{id}', name: 'showBookById')]
+    #[Route('/library/show/{id}', name: 'showBookById', methods: ['GET'])]
     public function showBookById(
         LibraryRepository $libraryRepository,
         int $id
     ): Response {
         $book = $libraryRepository
             ->find($id);
-
-        // return $this->json($book);
 
         $data = [
             'book' => $book
@@ -81,7 +66,7 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('library');
     }
 
-    #[Route('/library/delete/{id}', name: 'deleteBookById')]
+    #[Route('/library/delete/{id}', name: 'deleteBookById', methods: ['POST'])]
     public function deleteBookById(
         ManagerRegistry $doctrine,
         int $id
