@@ -10,7 +10,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\Entity\Library;
 use App\Repository\LibraryRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class ApiController extends AbstractController
 {
@@ -176,13 +179,26 @@ class ApiController extends AbstractController
     }
 
     #[Route('/api/library/books', name: 'apiBooks', methods: ['GET'])]
-    public function apiBooks(LibraryRepository $libraryRepository): Response
+    public function apiBooks(
+        ManagerRegistry $doctrine
+    ): Response
     {
-        $books = $libraryRepository->findAll();
+        $entityManager = $doctrine->getManager();
+        $repository = $entityManager->getRepository(Library::class);
+        $books = $repository->findAll();
 
         $data = [
-            'books' => $books
+            'books' => []
         ];
+
+        foreach ($books as $book) {
+            $data['books'][] = [
+                'title' => $book->getTitle(),
+                'isbn' => $book->getIsbn(),
+                'author' => $book->getAuthor(),
+                'image' => $book->getImage()
+            ];
+        }
 
         $response = new JsonResponse($data);
 
@@ -195,13 +211,19 @@ class ApiController extends AbstractController
     
 
     #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]
-    public function apiBooksIsbn(LibraryRepository $libraryRepository, int $isbn): Response
+    public function apiBooksIsbn(ManagerRegistry $doctrine, string $isbn): Response
     {
-        $book = $libraryRepository
-            ->find($isbn);
+        $entityManager = $doctrine->getManager();
+        $repository = $entityManager->getRepository(Library::class);
+        $book = $repository->findOneBy(['isbn' => $isbn]);
 
         $data = [
-            'book' => $book
+            'books' => [
+                'title' => $book->getTitle(),
+                'isbn' => $book->getIsbn(),
+                'author' => $book->getAuthor(),
+                'image' => $book->getImage()
+            ]
         ];
 
         $response = new JsonResponse($data);
