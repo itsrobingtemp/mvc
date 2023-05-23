@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+
+{% block body %}
+    <h1>{{book.title}}</h1>
+
+    <a href="{{ path('library') }}">Tillbaka</a>
+
+    <form action="{{ path('updateBook', { 'id': book.id }) }}" method="post">
+        <div class="form-block">
+            <h2>Editera bok - {{book.id}} - {{book.title}}</h2>
+
+            <input type="text" placeholder="{{book.title}}" name="title"/>
+            <input type="text" placeholder="{{book.isbn}}" name="isbn"/>
+            <input type="text" placeholder="{{book.author}}" name="author"/>
+            <input type="text" placeholder={{book.image}} name="image"/>
+
+            <button type="submit">Spara</button>
+        </div>
+    </form>
+{% endblock %}

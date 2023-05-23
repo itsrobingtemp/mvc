@@ -7,53 +7,46 @@
     <h1>Bibliotek</h1>
     <p>Välkommen till mitt bibliotek. Här kan du editera böckerna i databasen!</p>
 
-    {% for book in books %}
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Titel</th>
-                    <th>ISBN</th>
-                    <th>Författare</th>
-                    <th>Bild</th>
-                    <th>Mer info</th>
-                    <th>Editera</th>
-                    <th>Ta bort</th>
-                </tr>
-            </thead>
-            <tbody>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titel</th>
+                <th>ISBN</th>
+                <th>Författare</th>
+                <th>Bild</th>
+                <th>Editera</th>
+                <th>Ta bort</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
                 <tr>
                     <td>{{book.id}}</td>
-                    <td>{{book.title}}</td>
+                    <td><a href="{{ path('showBookById', { 'id': book.id }) }}">{{book.title}}</a></td>
                     <td>{{book.isbn}}</td>
                     <td>{{book.author}}</td>
                     <td>{{book.image}}</td>
-                    <td><a href="#">Mer info</a></td>
-                    <td><a href="#">Editera</a></td>
+                    <td><a href="{{ path('updateBookTemplate', { 'id': book.id }) }}">Editera</a></td>
                     <td><a href="{{ path('deleteBookById', { 'id': book.id }) }}">Ta bort</a></td>
                 </tr>
-            </tbody>
-        </table>
-    {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    
 
-    <form>
+    <form action="{{ path('createBook') }}" method="post">
         <div class="form-block">
             <h2>Lägg till ny bok</h2>
 
-            <input type="text" placeholder="Titel" value="title"/>
-            <input type="text" placeholder="ISBN" value="isbn"/>
-            <input type="text" placeholder="Författare" value="author"/>
-            <input type="text" placeholder="Bild" value="image"/>
+            <input type="text" placeholder="Titel" name="title"/>
+            <input type="text" placeholder="ISBN" name="isbn"/>
+            <input type="text" placeholder="Författare" name="author"/>
+            <input type="text" placeholder="Bild" name="image"/>
 
             <button type="submit">Lägg till</button>
         </div>
     </form>
     {# {{dump(books)}} #}
-
-    {# <nav>
-      <a href="{{ path('createBook') }}">Ny bok</a>
-      <a href="{{ path('showBookById/1') }}">Bok med ID 1</a>
-      <a href="{{ path('deleteBookById/1') }}">Radera bok</a>
-      <a href="{{ path('updateBook/1') }}">Uppdatera bok</a>
-    </nav> #}
 {% endblock %}

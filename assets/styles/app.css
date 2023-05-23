@@ -98,6 +98,7 @@ td {
   gap: 1rem;
 }
 
-input {
+input,
+button {
   padding: 0.5rem;
 }
