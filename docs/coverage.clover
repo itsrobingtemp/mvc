@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684938332">
-  <project timestamp="1684938332">
+<coverage generated="1684948635">
+  <project timestamp="1684948635">
     <file name="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/src/Card/ActualPlayer.php">
       <class name="App\Card\ActualPlayer" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -198,16 +198,16 @@
       <line num="79" type="stmt" count="2"/>
       <line num="80" type="stmt" count="2"/>
       <line num="82" type="stmt" count="2"/>
-      <line num="83" type="stmt" count="2"/>
-      <line num="84" type="stmt" count="2"/>
-      <line num="85" type="stmt" count="1"/>
+      <line num="83" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="2"/>
       <line num="86" type="stmt" count="1"/>
       <line num="87" type="stmt" count="1"/>
-      <line num="88" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="2"/>
       <line num="89" type="stmt" count="1"/>
       <line num="90" type="stmt" count="1"/>
-      <line num="92" type="stmt" count="1"/>
-      <line num="93" type="stmt" count="1"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="93" type="stmt" count="2"/>
       <line num="96" type="stmt" count="2"/>
       <line num="97" type="stmt" count="2"/>
       <metrics loc="100" ncloc="79" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="37" elements="43" coveredelements="43"/>

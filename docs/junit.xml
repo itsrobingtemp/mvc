@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="14" assertions="29" errors="0" warnings="0" failures="0" skipped="0" time="0.629235">
+    <testsuite name="Project Test Suite" tests="14" assertions="29" errors="0" warnings="0" failures="0" skipped="0" time="0.629235">
+      <testsuite name="App\Card\ActualPlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/ActualPlayerTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.329196">
+        <testcase name="testCreateActualPlayer" class="App\Card\ActualPlayerTest" classname="App.Card.ActualPlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/ActualPlayerTest.php" line="12" assertions="2" time="0.329196"/>
+      </testsuite>
+      <testsuite name="App\Card\CardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" tests="1" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.125695">
+        <testcase name="testCreateCard" class="App\Card\CardTest" classname="App.Card.CardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="12" assertions="3" time="0.125695"/>
+      </testsuite>
+      <testsuite name="App\Card\ComputerPlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/ComputerPlayerTest.php" tests="1" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.015820">
+        <testcase name="testCreateActualPlayer" class="App\Card\ComputerPlayerTest" classname="App.Card.ComputerPlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/ComputerPlayerTest.php" line="12" assertions="2" time="0.015820"/>
+      </testsuite>
+      <testsuite name="App\Card\DeckOfCardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsTest.php" tests="4" assertions="8" errors="0" warnings="0" failures="0" skipped="0" time="0.109106">
+        <testcase name="testCreateDeckWithoutInputCards" class="App\Card\DeckOfCardTest" classname="App.Card.DeckOfCardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsTest.php" line="12" assertions="3" time="0.026846"/>
+        <testcase name="testCreateDeckWithInputCards" class="App\Card\DeckOfCardTest" classname="App.Card.DeckOfCardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsTest.php" line="22" assertions="2" time="0.001415"/>
+        <testcase name="testGetDeckCards" class="App\Card\DeckOfCardTest" classname="App.Card.DeckOfCardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsTest.php" line="31" assertions="2" time="0.000868"/>
+        <testcase name="testShuffleDeck" class="App\Card\DeckOfCardTest" classname="App.Card.DeckOfCardTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsTest.php" line="40" assertions="1" time="0.079976"/>
+      </testsuite>
+      <testsuite name="App\Card\PlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/PlayerTest.php" tests="1" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.000413">
+        <testcase name="testCreateActualPlayer" class="App\Card\PlayerTest" classname="App.Card.PlayerTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/PlayerTest.php" line="12" assertions="3" time="0.000413"/>
+      </testsuite>
+      <testsuite name="App\Card\TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" tests="6" assertions="11" errors="0" warnings="0" failures="0" skipped="0" time="0.049006">
+        <testcase name="testCreateTwentyOne" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="12" assertions="3" time="0.015542"/>
+        <testcase name="testPlayerDraw" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="32" assertions="1" time="0.030112"/>
+        <testcase name="testComputerDraw" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="47" assertions="1" time="0.001042"/>
+        <testcase name="testGetCurrentGame" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="62" assertions="1" time="0.000387"/>
+        <testcase name="testVerifyRound" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="76" assertions="1" time="0.000732"/>
+        <testcase name="testVerifyComputerRound" class="App\Card\TwentyOneTest" classname="App.Card.TwentyOneTest" file="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/tests/Card/TwentyOneTest.php" line="91" assertions="4" time="0.001191"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
