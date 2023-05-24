@@ -16,8 +16,7 @@ class LibraryController extends AbstractController
     #[Route('/library', name: 'library')]
     public function library(
         LibraryRepository $libraryRepository
-    ): Response
-    {   
+    ): Response {
         $books = $libraryRepository->findAll();
 
         $data = [

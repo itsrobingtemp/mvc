@@ -181,8 +181,7 @@ class ApiController extends AbstractController
     #[Route('/api/library/books', name: 'apiBooks', methods: ['GET'])]
     public function apiBooks(
         ManagerRegistry $doctrine
-    ): Response
-    {
+    ): Response {
         $entityManager = $doctrine->getManager();
         $repository = $entityManager->getRepository(Library::class);
         $books = $repository->findAll();
@@ -208,7 +207,7 @@ class ApiController extends AbstractController
 
         return $response;
     }
-    
+
 
     #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]
     public function apiBooksIsbn(ManagerRegistry $doctrine, string $isbn): Response

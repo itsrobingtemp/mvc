@@ -17,9 +17,9 @@ class ActualPlayer extends Player
 
     /**
      * Returns a card array
-     * 
+     *
      */
-    public function draw(): array 
+    public function draw(): array
     {
         $deck = new DeckOfCards();
         $card = $deck->getRandomCard();
