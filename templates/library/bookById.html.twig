@@ -8,24 +8,32 @@
 
     <a href="{{ path('library') }}">Tillbaka</a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Titel</th>
-                <th>ISBN</th>
-                <th>Författare</th>
-                <th>Bild</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{book.id}}</td>
-                <td>{{book.title}}</td>
-                <td>{{book.isbn}}</td>
-                <td>{{book.author}}</td>
-                <td>{{book.image}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="book">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titel</th>
+                        <th>ISBN</th>
+                        <th>Författare</th>
+                        <th>Bild</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{book.id}}</td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.isbn}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.image}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <img src="{{book.image}}" alt="{{book.title}}"/>
+    </div>
+
+    
 {% endblock %}

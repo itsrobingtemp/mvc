@@ -6,10 +6,12 @@
     <h1>API</h1>
     <p>Denna webbsida erbjuder följande API-routes</p>
 
-    <p>/api/quote (GET) -> Ett slumpmässigt citat</p>
-    <p>/api/deck (GET) -> En hel kortlek</p>
-    <p>/api/deck/shuffle (POST) -> En blandad kortlek</p>
-    <p>/api/deck/draw (POST) -> Ett draget kort samt totala mängden kort som finns kvar i kortleken</p>
-    <p>/api/deck/draw/:number (POST) -> :number dragna kort samt totala mängden kort som finns kvar i kortleken</p>
-    <p>/api/game (GET) -> Aktuella ställningen för spelet 21</p>
+    <p><a href="{{ path('quote') }}">/api/quote</a> (GET) -> Ett slumpmässigt citat</p>
+    <p><a href="{{ path('apiDeck') }}">/api/deck</a> (GET) -> En hel kortlek</a></p>
+    <p><a href="{{ path('apiShuffle') }}">/api/deck/shuffle</a> (POST) -> En blandad kortlek</p>
+    <p><a href="{{ path('apiDraw') }}">/api/deck/draw</a> (POST) -> Ett draget kort samt totala mängden kort som finns kvar i kortleken</p>
+    <p><a href="{{ path('apiDrawNumber', { 'num': 5 }) }}">/api/deck/draw/:number</a> (POST) -> :number dragna kort samt totala mängden kort som finns kvar i kortleken</p>
+    <p><a href="{{ path('apiGame') }}">/api/game (GET)</a> -> Aktuella ställningen för spelet 21</p>
+    <p><a href="{{ path('apiBooks') }}">/api/library/books (GET)</a> -> Samtliga böcker i biblioteket</p>
+    <p><a href="{{ path('apiBooksIsbn', { 'isbn': "9789198330052" }) }}">/api/library/book/:isbn</a> (GET) -> Bok enligt ISBN</p>
 {% endblock %}

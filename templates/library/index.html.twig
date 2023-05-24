@@ -7,7 +7,7 @@
     <h1>Bibliotek</h1>
     <p>Välkommen till mitt bibliotek. Här kan du editera böckerna i databasen!</p>
 
-    
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -29,12 +29,18 @@
                     <td>{{book.author}}</td>
                     <td>{{book.image}}</td>
                     <td><a href="{{ path('updateBookTemplate', { 'id': book.id }) }}">Editera</a></td>
-                    <td><a href="{{ path('deleteBookById', { 'id': book.id }) }}">Ta bort</a></td>
+                    <td>
+                        <form 
+                            action="{{ path('deleteBookById', { 'id': book.id }) }}" 
+                            method="post"><button type="submit">Ta bort</button>
+                        </form>
+                    </td>
+                    {# <a href="{{ path('deleteBookById', { 'id': book.id }) }}">Ta bort</a></td> #}
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    
+    </div>
 
     <form action="{{ path('createBook') }}" method="post">
         <div class="form-block">
