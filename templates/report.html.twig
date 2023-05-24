@@ -202,4 +202,54 @@
     <p>
       Min TIL är att verkligen försöka tänka innan jag skriver mina klasser för att göra koden testbar.
     </p>
+
+    <h1><a href="#kmom05">Kmom05</a></h1>
+
+    <h2>
+      Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?
+    </h2>
+
+    <p>
+      Jag hade lite problem med installationen av Doctrine/SQLite när jag följde guiden. Detta tog en stund att felsöka och lösa, men gick till slut bra. Felmeddelandet 
+      var något i stil med "Could not find driver" och det visade sig att det fattades några PHP-extensions som jag installerade och aktiverade i PHP.ini-filen. För 
+      övrigt gick det mycket smidigt.
+    </p>
+
+    <h2>
+      Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?
+    </h2>
+
+    <p>
+      Jag följde guiden på Github rätt långt för att få en idé om hur applikationen skulle byggas upp. I användargränssnittet kan man på första sidan se 
+      alla böcker i en tabell samt lägga till en ny bok genom ett formulär. Varje bok i tabellen har en knapp för både editering och radering. 
+    </p>
+
+    <p>
+      Editeringsknappen tar en till en ny sida där man kan editera den specifika boken. Bokens initiella data laddas som placeholders för varje input-fält. 
+      Raderingsknappen skickar användaren till en route där boken tas bort, och sedan redirectas användaren tillbaka till första sidan.
+    </p>
+
+    <p>
+      Varje bok har även en länk till en sida där man kan se data om den specifika boken. På denna sida syns även bokens bild, som är sparad som en URL 
+      i databasen.
+    </p>
+
+    <h2>Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?</h2>
+
+    <p>
+      Jag tyckte det var jättesmidigt att använda Doctrine. Att inte behöva skriva sin egen SQL-kod, och istället bara använda metoder för att skapa, hämta, editera, radera data 
+      var väldigt skönt. 
+    </p>
+
+    <h2>Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?</h2>
+
+    <p>
+      Som nämnt i tidigare frågan känns det som ett smidigt sätt att både skapa tabeller och använda datan. Det känns som en abstrahering av den annars rätt tidskrävande 
+      databasprogrammeringen (speciellt om man inte är jätteduktigt på det än, som jag). Jag skulle kunna jämföra det med användning av t.ex. Firebase i Javascript, där 
+      man får färdigskapade metoder som hjälper en att hantera datan på olika sätt.
+    </p>
+
+    <h2>Vilken är din TIL för detta kmom?</h2>
+
+    <p>Min TIL är att hålla koll på mina PHP-extensions.</p>
 {% endblock %}
