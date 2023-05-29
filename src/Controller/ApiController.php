@@ -108,9 +108,9 @@ class ApiController extends AbstractController
     }
 
     #[Route('/api/draw/{num}', name: 'apiDrawNumber', methods: ['POST'])]
-    public function apiDrawNumber(array $_route_params, SessionInterface $session): Response
+    public function apiDrawNumber($_route_params, SessionInterface $session): Response
     {
-        /** @var mixed[] $_route_params */
+        /** @var string[] $_route_params */
         $num = $_route_params['num'];
         $currentCards = $session->get('current_cards', []);
 
@@ -119,7 +119,7 @@ class ApiController extends AbstractController
         }
 
         $deck = new DeckOfCards($currentCards);
-        $cards = $deck->getNumberCards($num);
+        $cards = $deck->getNumberCards(intval($num));
         $cardCount = count($deck->getCards());
 
         foreach ($cards as $card) {
@@ -235,6 +235,7 @@ class ApiController extends AbstractController
     #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]
     public function apiBooksIsbn(ManagerRegistry $doctrine, string $isbn): Response
     {
+        $data = [];
         $entityManager = $doctrine->getManager();
         $repository = $entityManager->getRepository(Library::class);
         $book = $repository->findOneBy(['isbn' => $isbn]);
@@ -254,8 +255,6 @@ class ApiController extends AbstractController
                         'image' => $image
                     ]
                 ];
-            } else {
-                $data = [];
             }
         }
 

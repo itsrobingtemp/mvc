@@ -86,9 +86,9 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num}", name: "drawNumber")]
-    public function drawNumber(array $_route_params, SessionInterface $session): Response
+    public function drawNumber($_route_params, SessionInterface $session): Response
     {
-        /** @var mixed[] $_route_params */
+        /** @var string[] $_route_params */
         $num = $_route_params['num'];
         
         $currentCards = $session->get('current_cards', []);
@@ -98,7 +98,7 @@ class CardGameController extends AbstractController
         }
 
         $deck = new DeckOfCards($currentCards);
-        $cards = $deck->getNumberCards($num);
+        $cards = $deck->getNumberCards(intval($num));
         $cardCount = count($deck->getCards());
 
         foreach ($cards as $card) {

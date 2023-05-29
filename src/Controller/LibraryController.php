@@ -26,13 +26,13 @@ class LibraryController extends AbstractController
         return $this->render('library/index.html.twig', $data);
     }
 
-    #[Route('/library/show/{id}', name: 'showBookById', methods: ['GET'])]
+    #[Route('/library/show/{bookId}', name: 'showBookById', methods: ['GET'])]
     public function showBookById(
         LibraryRepository $libraryRepository,
-        int $id
+        int $bookId
     ): Response {
         $book = $libraryRepository
-            ->find($id);
+            ->find($bookId);
 
         $data = [
             'book' => $book
@@ -68,17 +68,17 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('library');
     }
 
-    #[Route('/library/delete/{id}', name: 'deleteBookById', methods: ['POST'])]
+    #[Route('/library/delete/{bookId}', name: 'deleteBookById', methods: ['POST'])]
     public function deleteBookById(
         ManagerRegistry $doctrine,
-        int $id
+        int $bookId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($id);
+        $book = $entityManager->getRepository(Library::class)->find($bookId);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book found for id '.$id
+                'No book found for id '.$bookId
             );
         }
 
@@ -88,13 +88,13 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('library');
     }
 
-    #[Route('/library/update/{id}', name: 'updateBookTemplate', methods: ['GET'])]
+    #[Route('/library/update/{bookId}', name: 'updateBookTemplate', methods: ['GET'])]
     public function updateBookTemplate(
         LibraryRepository $libraryRepository,
-        int $id
+        int $bookId
     ): Response {
         $book = $libraryRepository
-            ->find($id);
+            ->find($bookId);
 
         $data = [
             'book' => $book
@@ -103,14 +103,14 @@ class LibraryController extends AbstractController
         return $this->render('library/bookUpdate.html.twig', $data);
     }
 
-    #[Route('/library/updated/{id}', name: 'updateBook', methods: ['POST'])]
+    #[Route('/library/updated/{bookId}', name: 'updateBook', methods: ['POST'])]
     public function updateBook(
         ManagerRegistry $doctrine,
         Request $request,
-        int $id
+        int $bookId
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($id);
+        $book = $entityManager->getRepository(Library::class)->find($bookId);
 
         $title = $request->request->get('title');
         $isbn = $request->request->get('isbn');
@@ -119,7 +119,7 @@ class LibraryController extends AbstractController
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No books found for id '.$id
+                'No books found for id '.$bookId
             );
         }
 

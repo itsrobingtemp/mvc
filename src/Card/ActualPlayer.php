@@ -22,14 +22,12 @@ class ActualPlayer extends Player
      */
     public function draw(): array
     {
-        $val = null;
+        $val = 0;
         $deck = new DeckOfCards([]);
         $card = $deck->getRandomCard();
 
         if (is_int($card["value"])) {
             $val = $card["value"];
-        } else {
-            $val = 0;
         }
 
         $this->setScore($val);

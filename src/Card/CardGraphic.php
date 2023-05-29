@@ -22,18 +22,13 @@ class CardGraphic extends Card
     }
 
     /**
-     * Makes a graphic representation of the card
+     * Returns a string for the suit
      * 
-     * @param int $value    The value of a card
-     * @param string $suit    The suit of a card
-     * 
-     * @return mixed[]
+     * @param string
+     * @return string
      */
-    public function setCardGraphic($suit, $value): array
-    {
+    public function getCardGraphicSuit(string $suit) : string {
         $suitString = "";
-        $valueString = "";
-        $colorString = "";
 
         switch ($suit) {
             case "hearts":
@@ -49,6 +44,18 @@ class CardGraphic extends Card
                 $suitString = "♠";
                 break;
         }
+
+        return $suitString;
+    }
+
+    /**
+     * Returns a string for the value
+     * 
+     * @param int
+     * @return string
+     */
+    public function getCardGraphicValueString(int $value) : string {
+        $valueString = "";
 
         switch ($value) {
             case 1:
@@ -69,6 +76,18 @@ class CardGraphic extends Card
                 break;
         }
 
+        return $valueString;
+    }
+
+    /**
+     * Returns a string for the color
+     * 
+     * @param string
+     * @return string
+     */
+    public function getCardGraphicColorString(string $suit) : string {
+        $colorString = "";
+
         switch($suit) {
             case "hearts":
                 $colorString = "red";
@@ -84,10 +103,23 @@ class CardGraphic extends Card
                 break;
         }
 
+        return $colorString;
+    }
+
+    /**
+     * Makes a graphic representation of the card
+     * 
+     * @param string $suit    The suit of a card
+     * @param int $value    The value of a card
+     * 
+     * @return mixed[]
+     */
+    public function setCardGraphic($suit, $value): array
+    {
         return array(
-          "suitString" => $suitString,
-          "valueString" => $valueString,
-          "colorString" => $colorString,
+          "suitString" => $this->getCardGraphicSuit($suit),
+          "valueString" => $this->getCardGraphicValueString($value),
+          "colorString" => $this->getCardGraphicColorString($suit),
           "suit" => $suit,
           "value" => $value
         );
