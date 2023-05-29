@@ -24,7 +24,7 @@ class CardGraphic extends Card
     /**
      * Returns a string for the suit
      * 
-     * @param string
+     * @param string $suit
      * @return string
      */
     public function getCardGraphicSuit(string $suit) : string {
@@ -51,7 +51,7 @@ class CardGraphic extends Card
     /**
      * Returns a string for the value
      * 
-     * @param int
+     * @param int $value
      * @return string
      */
     public function getCardGraphicValueString(int $value) : string {
@@ -82,7 +82,7 @@ class CardGraphic extends Card
     /**
      * Returns a string for the color
      * 
-     * @param string
+     * @param string $suit
      * @return string
      */
     public function getCardGraphicColorString(string $suit) : string {
