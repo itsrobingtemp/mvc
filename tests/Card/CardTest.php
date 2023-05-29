@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CardTest extends TestCase
 {
-    public function testCreateCard()
+    public function testCreateCard() : void
     {
         $card = new Card("spades", 5);
         $this->assertInstanceOf("\App\Card\Card", $card);

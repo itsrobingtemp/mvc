@@ -7,15 +7,22 @@ namespace App\Card;
  */
 class DeckOfCards
 {
+    /** @var mixed[] */
     private $cards;
+
+    /** @var mixed[] */
     private $drawnCards;
+
+    /** @var string[] */
     private $suits;
+
+    /** @var int[] */
     private $values;
 
     /**
-     * @param array $drawnCards    An array of already drawn cards
+     * @param mixed[] $drawnCards    An array of already drawn cards
      */
-    public function __construct($drawnCards = [])
+    public function __construct(array $drawnCards = [])
     {
         $this->suits = array("spades", "hearts", "clubs", "diamonds");
         $this->values = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
@@ -37,7 +44,7 @@ class DeckOfCards
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
-                $card = new CardGraphic($value, $suit);
+                $card = new CardGraphic($suit, $value);
                 $this->cards[] = $card->getCardGraphic();
             }
         }
@@ -50,13 +57,15 @@ class DeckOfCards
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
-                $newCard = new CardGraphic($value, $suit);
+                $newCard = new CardGraphic($suit, $value);
                 $cardExists = false;
 
                 foreach ($this->drawnCards as $drawnCard) {
-                    if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
-                        $cardExists = true;
-                        break;
+                    if (is_array($drawnCard)) {
+                        if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
+                            $cardExists = true;
+                            break;
+                        }
                     }
                 }
 
@@ -69,6 +78,9 @@ class DeckOfCards
 
     /**
      * Returns a number of cards
+     * 
+     * @param int $num
+     * @return mixed[]
      */
     public function getNumberCards($num): array
     {
@@ -83,6 +95,8 @@ class DeckOfCards
 
     /**
      * Retuurns all cards
+     * 
+     * @return mixed[]
      */
     public function getCards(): array
     {
@@ -99,19 +113,27 @@ class DeckOfCards
 
     /**
      * Draws a random card
+     * 
+     * @return mixed[]
      */
     public function getRandomCard(): array
     {
         $index = rand(0, count($this->cards) - 1);
         $randomCard = $this->cards[$index];
 
+        if (!is_array($randomCard)) {
+            return [];
+        }
+
         return $randomCard;
     }
 
     /**
      * Removes cards from deck
+     * 
+     * @return mixed[]
      */
-    public function removeCardAndReturnDeck($cardToBeRemoved): array
+    public function removeCardAndReturnDeck(Card $cardToBeRemoved): array
     {
         foreach ($this->cards as $index => $card) {
             if ($card->getSuit() === $cardToBeRemoved->getSuit() && $card->getValue() === $cardToBeRemoved->getValue()) {

@@ -7,6 +7,7 @@ namespace App\Card;
  */
 class Player
 {
+    /** @var int */
     private $score;
 
     /**
@@ -27,6 +28,8 @@ class Player
 
     /**
      * Sets the score
+     * 
+     * @param int $score
      */
     public function setScore($score): void
     {

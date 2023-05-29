@@ -54,13 +54,16 @@ class LibraryController extends AbstractController
         $image = $request->request->get('image');
 
         $book = new Library();
-        $book->setTitle($title);
-        $book->setIsbn($isbn);
-        $book->setAuthor($author);
-        $book->setImage($image);
 
-        $entityManager->persist($book);
-        $entityManager->flush();
+        if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+            $book->setTitle($title);
+            $book->setIsbn($isbn);
+            $book->setAuthor($author);
+            $book->setImage($image);
+
+            $entityManager->persist($book);
+            $entityManager->flush();
+        }
 
         return $this->redirectToRoute('library');
     }
@@ -120,10 +123,12 @@ class LibraryController extends AbstractController
             );
         }
 
-        $book->setTitle($title);
-        $book->setIsbn($isbn);
-        $book->setAuthor($author);
-        $book->setImage($image);
+        if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+            $book->setTitle($title);
+            $book->setIsbn($isbn);
+            $book->setAuthor($author);
+            $book->setImage($image);
+        }
 
         $entityManager->persist($book);
         $entityManager->flush();

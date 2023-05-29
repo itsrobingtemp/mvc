@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class TwentyOneTest extends TestCase
 {
-    public function testCreateTwentyOne()
+    public function testCreateTwentyOne() : void
     {
         $twentyone = new TwentyOne([]);
         $this->assertInstanceOf("\App\Card\TwentyOne", $twentyone);
@@ -29,7 +29,7 @@ class TwentyOneTest extends TestCase
         $this->assertIsArray($res);
     }
 
-    public function testPlayerDraw()
+    public function testPlayerDraw() : void
     {
         $twentyone = new TwentyOne([
           "playerScore" => 1,
@@ -44,7 +44,7 @@ class TwentyOneTest extends TestCase
         $this->assertGreaterThan(1, $res["playerScore"]);
     }
 
-    public function testComputerDraw()
+    public function testComputerDraw() : void
     {
         $twentyone = new TwentyOne([
           "playerScore" => 1,
@@ -59,7 +59,7 @@ class TwentyOneTest extends TestCase
         $this->assertGreaterThan(1, $res["computerScore"]);
     }
 
-    public function testGetCurrentGame()
+    public function testGetCurrentGame() : void
     {
         $twentyone = new TwentyOne([
           "playerScore" => 1,
@@ -73,7 +73,7 @@ class TwentyOneTest extends TestCase
         $this->assertIsArray($res);
     }
 
-    public function testVerifyRound()
+    public function testVerifyRound() : void
     {
         $twentyone = new TwentyOne([
           "playerScore" => 22,
@@ -88,7 +88,7 @@ class TwentyOneTest extends TestCase
         $this->assertEquals($res["finishedRound"], true);
     }
 
-    public function testVerifyComputerRound()
+    public function testVerifyComputerRound() : void
     {
         $twentyone = new TwentyOne([
           "playerScore" => 1,

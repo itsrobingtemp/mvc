@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Library;
-use App\Repository\LibraryRepository;
+// use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 class ApiController extends AbstractController
@@ -27,6 +27,10 @@ class ApiController extends AbstractController
     public function apiDeck(SessionInterface $session): Response
     {
         $currentCards = $session->get('current_cards', []);
+
+        if (!is_array($currentCards)) {
+            $currentCards = [];
+        }
 
         $deck = new DeckOfCards($currentCards);
         $cards = $deck->getCards();
@@ -51,6 +55,10 @@ class ApiController extends AbstractController
         $session->set('current_cards', null);
         $currentCards = $session->get('current_cards', []);
 
+        if (!is_array($currentCards)) {
+            $currentCards = [];
+        }
+
         $deck = new DeckOfCards($currentCards);
         $deck->shuffleDeck();
         $cards = $deck->getCards();
@@ -72,6 +80,10 @@ class ApiController extends AbstractController
     public function apiDraw(SessionInterface $session): Response
     {
         $currentCards = $session->get('current_cards', []);
+
+        if (!is_array($currentCards)) {
+            $currentCards = [];
+        }
 
         $deck = new DeckOfCards($currentCards);
         $card = $deck->getRandomCard();
@@ -98,8 +110,13 @@ class ApiController extends AbstractController
     #[Route('/api/draw/{num}', name: 'apiDrawNumber', methods: ['POST'])]
     public function apiDrawNumber(array $_route_params, SessionInterface $session): Response
     {
+        /** @var mixed[] $_route_params */
         $num = $_route_params['num'];
         $currentCards = $session->get('current_cards', []);
+
+        if (!is_array($currentCards)) {
+            $currentCards = [];
+        }
 
         $deck = new DeckOfCards($currentCards);
         $cards = $deck->getNumberCards($num);
@@ -114,7 +131,7 @@ class ApiController extends AbstractController
 
         $data = [
             'cards' => $cards,
-            'count' => $cardCount - $num,
+            'count' => $cardCount - intval($num),
         ];
 
         $response = new JsonResponse($data);
@@ -158,7 +175,13 @@ class ApiController extends AbstractController
     #[Route('/api/game', name: 'apiGame')]
     public function apiGame(SessionInterface $session): Response
     {
-        $twentyOne = new TwentyOne($session->get("current_game"));
+        $currentGame = $session->get("current_game");
+
+        if (!is_array($currentGame)) {
+            $currentGame = [];
+        }
+
+        $twentyOne = new TwentyOne($currentGame);
         $gameData = $twentyOne->getCurrentGame();
 
         $data = [
@@ -216,14 +239,25 @@ class ApiController extends AbstractController
         $repository = $entityManager->getRepository(Library::class);
         $book = $repository->findOneBy(['isbn' => $isbn]);
 
-        $data = [
-            'books' => [
-                'title' => $book->getTitle(),
-                'isbn' => $book->getIsbn(),
-                'author' => $book->getAuthor(),
-                'image' => $book->getImage()
-            ]
-        ];
+        if ($book !== null) {
+            $title = $book->getTitle();
+            $isbn = $book->getIsbn();
+            $author = $book->getAuthor();
+            $image = $book->getImage();
+
+            if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+                $data = [
+                    'books' => [
+                        'title' => $title,
+                        'isbn' => $isbn,
+                        'author' => $author,
+                        'image' => $image
+                    ]
+                ];
+            } else {
+                $data = [];
+            }
+        }
 
         $response = new JsonResponse($data);
 

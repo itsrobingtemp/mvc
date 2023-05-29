@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684948635">
-  <project timestamp="1684948635">
+<coverage generated="1685351575">
+  <project timestamp="1685351575">
     <file name="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/src/Card/ActualPlayer.php">
       <class name="App\Card\ActualPlayer" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
@@ -547,6 +547,18 @@
       <line num="20" type="stmt" count="0"/>
       <metrics loc="23" ncloc="23" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
     </file>
+    <file name="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/src/Controller/MetricsController.php">
+      <class name="App\Controller\MetricController" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+      </class>
+      <line num="11" type="method" name="metrics" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <metrics loc="22" ncloc="22" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+    </file>
     <file name="/mnt/c/Users/robin/Desktop/dbwebb-kurser/mvc/me/report/src/Controller/ReportController.php">
       <class name="App\Controller\ReportController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
@@ -605,6 +617,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="18" loc="1265" ncloc="1120" classes="17" methods="69" coveredmethods="26" conditionals="0" coveredconditionals="0" statements="427" coveredstatements="137" elements="496" coveredelements="163"/>
+    <metrics files="19" loc="1287" ncloc="1142" classes="18" methods="70" coveredmethods="26" conditionals="0" coveredconditionals="0" statements="432" coveredstatements="137" elements="502" coveredelements="163"/>
   </project>
 </coverage>

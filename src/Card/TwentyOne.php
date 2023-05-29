@@ -6,11 +6,12 @@ namespace App\Card;
  * Represents the game of 21
  */
 class TwentyOne
-{
+{   
+    /** @var mixed[] */
     private $game;
 
     /**
-     * @param array $currentGame    An array of current game data
+     * @param mixed[] $currentGame    An array of current game data
      */
     public function __construct($currentGame)
     {
@@ -31,13 +32,18 @@ class TwentyOne
      * Draws a card for the player
      */
     public function playerDraw(): void
-    {
-        $player = new ActualPlayer($this->game["playerScore"]);
-        $card = $player->draw();
+    {   
+        $player = null;
+        $playerScore = $this->game["playerScore"];
 
-        $this->game["playerScore"] += $player->getScore();
-        $this->game["currentCard"] = $card;
-        $this->verifyPlayerRound();
+        if (is_int($playerScore)) {
+            $player = new ActualPlayer($playerScore);
+
+            $card = $player->draw();
+            $this->game["playerScore"] += $player->getScore();
+            $this->game["currentCard"] = $card;
+            $this->verifyPlayerRound();
+        }
     }
 
     /**
@@ -45,15 +51,22 @@ class TwentyOne
      */
     public function computerDraw(): void
     {
-        $computer = new ComputerPlayer($this->game["computerScore"]);
-        $computer->draw();
+        $computer = null;
+        $computerScore = $this->game["computerScore"];
 
-        $this->game["computerScore"] += $computer->getScore();
-        $this->verifyComputerRound();
+        if (is_int($computerScore)) {
+            $computer = new ComputerPlayer($computerScore);
+
+            $computer->draw();
+            $this->game["computerScore"] += $computer->getScore();
+            $this->verifyComputerRound();
+        }
     }
 
     /**
      * Returns the current game as an array
+     * 
+     * @return mixed[]
      */
     public function getCurrentGame(): array
     {

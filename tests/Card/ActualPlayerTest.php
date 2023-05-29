@@ -6,10 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Test cases for class Dice.
+ * 
  */
 class ActualPlayerTest extends TestCase
 {
-    public function testCreateActualPlayer()
+    public function testCreateActualPlayer() : void
     {
         $player = new ActualPlayer(5);
         $this->assertInstanceOf("\App\Card\ActualPlayer", $player);

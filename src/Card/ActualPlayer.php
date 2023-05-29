@@ -17,14 +17,22 @@ class ActualPlayer extends Player
 
     /**
      * Returns a card array
-     *
+     * 
+     * @return mixed[]
      */
     public function draw(): array
     {
-        $deck = new DeckOfCards();
+        $val = null;
+        $deck = new DeckOfCards([]);
         $card = $deck->getRandomCard();
 
-        $this->setScore($card["value"]);
+        if (is_int($card["value"])) {
+            $val = $card["value"];
+        } else {
+            $val = 0;
+        }
+
+        $this->setScore($val);
         return $card;
     }
 }

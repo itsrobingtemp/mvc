@@ -23,6 +23,10 @@ class CardGameController extends AbstractController
     {
         $currentCards = $session->get('current_cards', []);
 
+        if (!is_array($currentCards)) {
+          $currentCards = [];
+        }
+
         $deck = new DeckOfCards($currentCards);
         $cards = $deck->getCards();
 
@@ -40,6 +44,10 @@ class CardGameController extends AbstractController
         $session->set('current_cards', null);
         $currentCards = $session->get('current_cards', []);
 
+        if (!is_array($currentCards)) {
+          $currentCards = [];
+        }
+
         $deck = new DeckOfCards($currentCards);
         $deck->shuffleDeck();
         $cards = $deck->getCards();
@@ -55,6 +63,10 @@ class CardGameController extends AbstractController
     public function cardDeckDraw(SessionInterface $session): Response
     {
         $currentCards = $session->get('current_cards', []);
+
+        if (!is_array($currentCards)) {
+          $currentCards = [];
+        }
 
         $deck = new DeckOfCards($currentCards);
         $card = $deck->getRandomCard();
@@ -76,8 +88,14 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/draw/{num}", name: "drawNumber")]
     public function drawNumber(array $_route_params, SessionInterface $session): Response
     {
+        /** @var mixed[] $_route_params */
         $num = $_route_params['num'];
+        
         $currentCards = $session->get('current_cards', []);
+
+        if (!is_array($currentCards)) {
+          $currentCards = [];
+        }
 
         $deck = new DeckOfCards($currentCards);
         $cards = $deck->getNumberCards($num);
@@ -92,7 +110,7 @@ class CardGameController extends AbstractController
 
         $data = [
           'cards' => $cards,
-          'count' => $cardCount - $num,
+          'count' => $cardCount - intval($num),
         ];
 
         return $this->render('card/draw_number.html.twig', $data);

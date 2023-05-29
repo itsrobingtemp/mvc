@@ -8,6 +8,7 @@ namespace App\Card;
  */
 class CardGraphic extends Card
 {
+    /** @var mixed[] */
     private $cardGraphic;
 
     /**
@@ -22,8 +23,13 @@ class CardGraphic extends Card
 
     /**
      * Makes a graphic representation of the card
+     * 
+     * @param int $value    The value of a card
+     * @param string $suit    The suit of a card
+     * 
+     * @return mixed[]
      */
-    public function setCardGraphic($value, $suit): array
+    public function setCardGraphic($suit, $value): array
     {
         $suitString = "";
         $valueString = "";
@@ -89,6 +95,8 @@ class CardGraphic extends Card
 
     /**
      * Returns the graphic card array
+     * 
+     * @return mixed[]
      */
     public function getCardGraphic(): array
     {

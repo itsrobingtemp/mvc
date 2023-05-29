@@ -13,12 +13,18 @@ class GameController extends AbstractController
 {
     #[Route('/game', name: 'game')]
     public function game(SessionInterface $session): Response
-    {
+    {   
+        $currentGame = $session->get("current_game");
+
+        if (!is_array($currentGame)) {
+            $currentGame = [];
+        }
+
         if (empty($session->get('current_game'))) {
             $session->set('current_game', []);
         }
 
-        $game = new TwentyOne($session->get("current_game"));
+        $game = new TwentyOne($currentGame);
         $session->set('current_game', $game->getCurrentGame());
 
         return $this->render('game/game.html.twig');
@@ -33,7 +39,13 @@ class GameController extends AbstractController
     #[Route('/game/start', name: 'gameStart')]
     public function gameStart(SessionInterface $session): Response
     {
-        $game = new TwentyOne($session->get("current_game"));
+        $currentGame = $session->get("current_game");
+
+        if (!is_array($currentGame)) {
+            $currentGame = [];
+        }
+
+        $game = new TwentyOne($currentGame);
         $gameData = $game->getCurrentGame();
 
         $data = [
@@ -52,7 +64,13 @@ class GameController extends AbstractController
     #[Route('/game/draw', name: 'gameDraw')]
     public function gameDraw(SessionInterface $session): Response
     {
-        $game = new TwentyOne($session->get("current_game"));
+        $currentGame = $session->get("current_game");
+
+        if (!is_array($currentGame)) {
+            $currentGame = [];
+        }
+
+        $game = new TwentyOne($currentGame);
 
         $game->playerDraw();
 
@@ -64,7 +82,13 @@ class GameController extends AbstractController
     #[Route('/game/stay', name: 'gameStay')]
     public function gameStay(SessionInterface $session): Response
     {
-        $game = new TwentyOne($session->get("current_game"));
+        $currentGame = $session->get("current_game");
+
+        if (!is_array($currentGame)) {
+            $currentGame = [];
+        }
+
+        $game = new TwentyOne($currentGame);
         $game->computerDraw();
 
         $session->set('current_game', $game->getCurrentGame());
