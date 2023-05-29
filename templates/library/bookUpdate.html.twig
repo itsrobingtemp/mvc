@@ -8,7 +8,7 @@
 
     <a href="{{ path('library') }}">Tillbaka</a>
 
-    <form action="{{ path('updateBook', { 'id': book.id }) }}" method="post">
+    <form action="{{ path('updateBook', { 'bookId': book.id }) }}" method="post">
         <div class="form-block">
             <h2>Editera bok - {{book.id}} - {{book.title}}</h2>
 

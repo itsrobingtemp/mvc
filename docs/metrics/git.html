@@ -49,193 +49,190 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-05-29 15:03:59        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-05-29 15:04:00        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
 
-    <div class="row">
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Violations</div>
-                <div class="number">4</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Information</div>
-                <div class="number">0</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Warnings</div>
-                <div class="number">3</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Errors</div>
-                <div class="number">1</div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="bloc bloc-number">
-                <div class="label">Criticals</div>
-                <div class="number">0</div>
-            </div>
+
+<div class="row">
+    <div class="column">
+        <div class="bloc">
+            <h4>Git history
+                <small>(PHP files only)</small>
+            </h4>
+            <div id="chart-git-history" style="height:200px"></div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="column">
-            <div class="bloc">
-                <h4>Class Violations</h4>
-                <table class="table-pagerank table-small">
-                    <thead>
-                    <tr>
-                        <th>Class</th>
-                        <th>Violations</th>
+<div class="row">
+    <div class="column column-60">
+        <div class="bloc">
+            <h4>Most committed PHP files</h4>
+            <table class="js-sort-table table-small" id="table-commits">
+                <thead>
+                <tr>
+                    <th>File</th>
+                    <th class="js-sort-number">Commits</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>src/Card/CardGraphic.php</td>
+                        <td>9</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    
-                            <tr>
-                                <td>
-                                    <a onclick="return toggle('bloc-6474a2bfe808b7.41071289');">
-                                        <span class="path">App\Controller\ApiController</span>
-                                    </a>
-                                    <div class="violation-list" id="bloc-6474a2bfe808b7.41071289">
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Blob / God object                                                    <span
-                                                        class="badge level level-error">error</span>
-
-                                                </div>
-                                                <div
-                                                    class="description">A blob object (or "god class") does not follow the Single responsibility principle.<br />
-<br />
-* object has lot of public methods  (9, excluding getters and setters)<br />
-* object has a high Lack of cohesion of methods (LCOM=9)<br />
-* object knows everything (and use lot of external classes)<br />
-<br />
-Maybe you should reducing the number of methods splitting this object in many sub objects.</div>
-
-                                            </div>
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Probably bugged                                                    <span
-                                                        class="badge level level-warning">warning</span>
-
-                                                </div>
-                                                <div
-                                                    class="description">This component contains in theory 0.68 bugs.<br />
-<br />
-* Calculation is based on number of operators, operands, cyclomatic complexity<br />
-* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures<br />
-* 0 testsuites has dependency to this class.<br />
-<br />
-Maybe you should check your unit tests for this class.</div>
-
-                                            </div>
-                                                                            </div>
-                                </td>
-
-                                <td valign="top">
-                                                                            <span
-                                            class="badge level level-error"> Blob / God object</span>
-                                                                            <span
-                                            class="badge level level-warning"> Probably bugged</span>
-                                                                    </td>
-                            </tr>
-                                            </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <div class="bloc">
-                <h4>Package Violations</h4>
-                <table class="table-pagerank table-small">
-                    <thead>
-                    <tr>
-                        <th>Package</th>
-                        <th>Violations</th>
+                                    <tr>
+                        <td>src/Card/ActualPlayer.php</td>
+                        <td>8</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    
-                            <tr>
-                                <td>
-                                    <a onclick="return toggle('bloc-6474a2bfe80bd');">
-                                        <span class="path">App\Card</span>
-                                    </a>
-                                    <div class="violation-list" id="bloc-6474a2bfe80bd">
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Stable Abstractions Principle                                                    <span
-                                                            class="badge level level-warning">warning</span>
-
-                                                </div>
-                                                <div
-                                                        class="description">Packages should be either abstract and stable or concrete and instable.<br />
-<br />
-This package is instable and abstract.</div>
-
-                                            </div>
-                                                                            </div>
-                                </td>
-
-                                <td valign="top">
-                                                                            <span
-                                                class="badge level level-warning"> Stable Abstractions Principle</span>
-                                                                    </td>
-                            </tr>
-                        
-                            <tr>
-                                <td>
-                                    <a onclick="return toggle('bloc-6474a2bfe80cb');">
-                                        <span class="path">App\Entity</span>
-                                    </a>
-                                    <div class="violation-list" id="bloc-6474a2bfe80cb">
-                                                                                    <div class="violation">
-                                                <div class="name">
-                                                    Stable Abstractions Principle                                                    <span
-                                                            class="badge level level-warning">warning</span>
-
-                                                </div>
-                                                <div
-                                                        class="description">Packages should be either abstract and stable or concrete and instable.<br />
-<br />
-This package is instable and abstract.</div>
-
-                                            </div>
-                                                                            </div>
-                                </td>
-
-                                <td valign="top">
-                                                                            <span
-                                                class="badge level level-warning"> Stable Abstractions Principle</span>
-                                                                    </td>
-                            </tr>
-                                            </tbody>
-                </table>
-            </div>
+                                    <tr>
+                        <td>src/Controller/ApiController.php</td>
+                        <td>12</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/CardGameController.php</td>
+                        <td>8</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/LibraryController.php</td>
+                        <td>7</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Card/Card.php</td>
+                        <td>11</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Card/DeckOfCards.php</td>
+                        <td>7</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Card/Player.php</td>
+                        <td>5</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Card/TwentyOne.php</td>
+                        <td>5</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/GameController.php</td>
+                        <td>8</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/ActualPlayerTest.php</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/CardTest.php</td>
+                        <td>4</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/ComputerPlayerTest.php</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/DeckOfCardsTest.php</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/PlayerTest.php</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/Card/TwentyOneTest.php</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/MetricsController.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>migrations/Version20230521132542.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Entity/Library.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Repository/LibraryRepository.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Card/ComputerPlayer.php</td>
+                        <td>4</td>
+                    </tr>
+                                    <tr>
+                        <td>.php-cs-fixer.dist.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/AboutController.php</td>
+                        <td>4</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/HomeController.php</td>
+                        <td>2</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/LuckyController.php</td>
+                        <td>2</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Controller/ReportController.php</td>
+                        <td>2</td>
+                    </tr>
+                                    <tr>
+                        <td>config/bundles.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>config/preload.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>public/index.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>src/Kernel.php</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>tests/bootstrap.php</td>
+                        <td>1</td>
+                    </tr>
+                                </tbody>
+            </table>
         </div>
     </div>
+    <div class="column">
+        <div class="bloc">
+            <h4>Contributors <small>(PHP only)</small></h4>
+            <table class="js-sort-table table-small" id="table-authors">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="js-sort-number">Commits</th>
+                    <th class="js-sort-number">Additions</th>
+                    <th class="js-sort-number">Removes</th>
+                    <th class="js-sort-number">Files</th>
+                </tr>
+                </thead>
+                <tbody>
+                                    <tr>
+                        <td>Robin Granqvist</td>
+                        <td>40</td>
+                        <td>2915</td>
+                        <td>1097</td>
+                        <td>123</td>
+                    </tr>
+                                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    <script>
-        function toggle(id) {
-            var div = document.getElementById(id);
-            if (div.style.display === 'block') {
-                div.style.display = 'none';
-            }
-            else {
-                div.style.display = 'block';
-            }
-        }
-    </script>
 </div>
 
 <!-- Sidebar -->
@@ -427,3 +424,165 @@ This package is instable and abstract.</div>
 
 </body>
 </html>
+
+
+<script>
+    var format = d3.time.format("%Y-%W");
+
+    var margin = {top: 20, right: 0, bottom: 40, left: 40},
+        width = document.getElementById('chart-git-history').offsetWidth - margin.left - margin.right,
+        height = document.getElementById('chart-git-history').offsetHeight - margin.top - margin.bottom;
+
+    var x = d3.time.scale()
+        .range([0, width]);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var z = d3.scale.category20c();
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .ticks(d3.time.month);
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
+
+    var stack = d3.layout.stack()
+        .offset("zero")
+        .values(function (d) {
+            return d.values;
+        })
+        .x(function (d) {
+            return d.date;
+        })
+        .y(function (d) {
+            return d.value;
+        });
+
+    var nest = d3.nest()
+        .key(function (d) {
+            return d.key;
+        });
+
+    var area = d3.svg.area()
+        .interpolate("cardinal")
+        .x(function (d) {
+            return x(d.date);
+        })
+        .y0(function (d) {
+            return y(d.y0);
+        })
+        .y1(function (d) {
+            return y(d.y0 + d.y);
+        });
+
+    var svg = d3.select("#chart-git-history").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var data = [
+    {
+        "date": "2023-16",
+        "key": "Additions",
+        "value": 203
+    },
+    {
+        "date": "2023-16",
+        "key": "Removes",
+        "value": 128
+    },
+    {
+        "date": "2023-17",
+        "key": "Additions",
+        "value": 189
+    },
+    {
+        "date": "2023-17",
+        "key": "Removes",
+        "value": 23
+    },
+    {
+        "date": "2023-18",
+        "key": "Additions",
+        "value": 580
+    },
+    {
+        "date": "2023-18",
+        "key": "Removes",
+        "value": 405
+    },
+    {
+        "date": "2023-19",
+        "key": "Additions",
+        "value": 1034
+    },
+    {
+        "date": "2023-19",
+        "key": "Removes",
+        "value": 377
+    },
+    {
+        "date": "2023-21",
+        "key": "Additions",
+        "value": 455
+    },
+    {
+        "date": "2023-21",
+        "key": "Removes",
+        "value": 58
+    },
+    {
+        "date": "2023-22",
+        "key": "Additions",
+        "value": 274
+    },
+    {
+        "date": "2023-22",
+        "key": "Removes",
+        "value": 106
+    }
+];
+
+    data.forEach(function (d) {
+        d.date = format.parse(d.date);
+    });
+
+    var layers = stack(nest.entries(data));
+
+    x.domain(d3.extent(data, function (d) {
+        return d.date;
+    }));
+    y.domain([0, d3.max(data, function (d) {
+        return d.y0 + d.y;
+    })]);
+
+    svg.selectAll(".layer")
+        .data(layers)
+        .enter().append("path")
+        .attr("class", "layer")
+        .attr("d", function (d) {
+            return area(d.values);
+        })
+        .style("fill", function (d, i) {
+            return z(i);
+        });
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+
+    sortTable(document.getElementById('table-commits'), 1, -1);
+    sortTable(document.getElementById('table-authors'), 1, -1);
+
+</script>

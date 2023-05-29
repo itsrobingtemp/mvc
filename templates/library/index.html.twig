@@ -24,18 +24,18 @@
             {% for book in books %}
                 <tr>
                     <td>{{book.id}}</td>
-                    <td><a href="{{ path('showBookById', { 'id': book.id }) }}">{{book.title}}</a></td>
+                    <td><a href="{{ path('showBookById', { 'bookId': book.id }) }}">{{book.title}}</a></td>
                     <td>{{book.isbn}}</td>
                     <td>{{book.author}}</td>
                     <td>{{book.image}}</td>
-                    <td><a href="{{ path('updateBookTemplate', { 'id': book.id }) }}">Editera</a></td>
+                    <td><a href="{{ path('updateBookTemplate', { 'bookId': book.id }) }}">Editera</a></td>
                     <td>
                         <form 
-                            action="{{ path('deleteBookById', { 'id': book.id }) }}" 
+                            action="{{ path('deleteBookById', { 'bookId': book.id }) }}" 
                             method="post"><button type="submit">Ta bort</button>
                         </form>
                     </td>
-                    {# <a href="{{ path('deleteBookById', { 'id': book.id }) }}">Ta bort</a></td> #}
+                    {# <a href="{{ path('deleteBookById', { 'bookId': book.id }) }}">Ta bort</a></td> #}
                 </tr>
             {% endfor %}
         </tbody>
