@@ -6,21 +6,221 @@
     <h1>Metrics</h1>
     <p>Blablab, lite intro</p>
 
-    <h2>Introduktion</h2>
-    <p>Blablab, lite intro</p>
 
-    <h2>Phpmetrics</h2>
-    <p>Blablab, lite intro</p>
+    <h2>Introduktion</h2>
+    <p>Följande text är en analys i kodkvalitet. Projektet som skall analyseras är min "report-webbsida" som är utvecklad i PHP-ramverket Symfony.</p>
+    <p>Verktygen som använts i denna analys är PHP-biblioteket PHPMetrics samt Git-kopplade analysverktyget Scrutinizer.</p>
+    <p>Mätvärden som används är de 6 C'erna, dvs. codestyle, coverage, complexity, cohesion, coupling och CRAP. Dessa definieras (med exempel i de flesta fall) i följande text.</p>
+
+    <h3>Codestyle</h3>
+
+    <p>
+        Enligt min uppfattning kan kodstilen av ett projekt innefatta flera saker. Det första man kanske tänker på är valen av 
+        variabelnamn och konsekvent indentering, men även t.ex. storleken på klasser och metoder skulle kunna hamna under denna rubrik.
+    </p>
+
+    <img src="{{ asset('img/metrics/rating.png') }}" alt="Rating">
+
+    <p>Bilden visar klasser sorterade på storlek, dvs. rader kod. </p>
+
+    <h3>Coverage</h3>
+
+    <p>
+    Coverage handlar om hur vältestad ens kod är, dvs. hur mycket av ens kod som faktiskt omfattas av tester. Dock beskriver det inte hur välskrivna och hur "bra" ens test faktiskt testar ens kod.
+    </p>
+
+    <img src="{{ asset('img/metrics/coverage.png') }}" alt="Coverage">
+
+    <p>
+        I mitt fall kan vi se att 96.26% av mina klasser (exkl. controllers, entities & repository) är testade. Om vi kollar närmare kan vi se att klassen "DeckOfCards" är den enda klassen som inte når upp till 100%. Detta beror på att en metod i denna klass inte är testad.
+    </p>
+
+    <img src="{{ asset('img/metrics/coverage2.png') }}" alt="Coverage">
+
+    <h3>Complexity</h3>
+
+    <p>
+        "Cyclomatic complexity" beskriver hur komplex ens kod är. Detta kan bero på komplex logik som t.ex. många loops, if/else-satser etc. i en och samma metod. 
+    </p>
+
+    <p>
+        Högre poäng tyder på att koden kan vara mer komplex, vilket kan betyda att koden kan vara svår att utveckla vidare i framtiden.
+    </p>
+
+    <img src="{{ asset('img/metrics/rating2.png') }}" alt="Rating">
+
+    <p>
+        Genom Scrutinizer kan vi se att flera klasser når en "complexity score" på över 10, där den mest komplexa klassen är "DeckOfCards" följt av "ApiController".
+    </p>
+
+    <p>
+        En potentiell lösning på detta problem skulle kunna vara att dela upp en klass i flera mindre klasser.
+    </p>
+
+    <p>
+        Även PHPMetrics ger ett liknande resultat.
+    </p>
+
+    <img src="{{ asset('img/metrics/phpmetrics.png') }}" alt="phpmetrics">
+
+    <h3>Cohesion</h3>
+
+    <p>
+        "Cohesion" visar på hur bra eller dåligt metoder i en klass hänger ihop med varandra. Högre värden tyder på lägre cohesion, dvs. att koden i samma klass är mindre sammanhängande.
+    </p>
+
+    <p>
+        En potentiell lösning på detta skulle kunna vara att dela upp en klass i flera mindre klasser där varje klass hänger ihop bättre.
+    </p>
+
+    <h3>Coupling</h3>
+
+    <p>"Coupling" visar på hur många andra klasser som använder sig av en klass, samt hur många klasser en klass använder sig av.</p>
+
+    <img src="{{ asset('img/metrics/coupling.png') }}" alt="coupling">
+
+    <p>
+        I detta projekt kan vi se att flera klasser använder "ApiController" & "LibraryController", medan "DeckOfCard" används av flera andra klasser.
+    </p>
+
+    <h3>CRAP</h3>
+
+    <p>
+    CRAP-värdet visar hur komplex en metod är i jämförelse med hur många testfall som testar den.
+    </p>
+
+    <img src="{{ asset('img/metrics/brating.png') }}" alt="brating">
+
+    <p>I mitt projekt kan vi se att metoden "apiBookIsbn" i klassen "ApiController" samt metoden "updateBook" i klassen "LibraryController" har de högsta CRAP-värden.</p>
+
+    <p>
+        Även metoderna "createBook" samt "removeCardsAndReturnDeck" har rätt höga CRAP-värden.
+    </p>
+
+    <p>
+        En potentiell lösning för att få ett lägre CRAP-värde skulle kunna vara att skriva fler testfall, alaternativt dela upp metoden i flera mindre metoder.
+    </p>
+
+    <h2>PHPMetrics</h2>
+
+    <p>
+        Här följer ett antal svaga punkter med förbättringspotential som verktyget PHPMetrics kunde hitta i detta projekt.
+    </p>
+
+    <h3>ApiController</h3>
+
+    <img src="{{ asset('img/metrics/apicontroller.png') }}" alt="apicontroller">
+
+    <p>
+        Som vi kan se verkar klassen "ApiController" lite väl complex för sitt eget bästa. Den innehåller både många metoder, samt en låg cohesion bland metoderna. 
+    </p>
+    
+    <h3>DeckOfCards</h3>
+
+    <img src="{{ asset('img/metrics/phpmetrics.png') }}" alt="phpmetrics">
+
+    <p>
+        Även klassen "DeckOfCards" verkar aningen komplex. Som vi kan se i bilden har den en hög "cyclomatic complexity", och skulle därför kanske kunna delas i fler mindre klasser, alternativt nå en högre test coverage.
+    </p>
+
+    <h3>Controllers</h3>
+
+    <img src="{{ asset('img/metrics/notest.png') }}" alt="notest">
+
+    <p>
+        Projektets totala test coverage tar en rätt stor smäll eftersom controllers inte testas. En högre total coverage-procent skulle kunna uppnås genom att testa dessa.
+    </p>
 
     <h2>Scrutinizer</h2>
-    <p>Blablab, lite intro</p>
 
-    <h2>6C</h2>
-    <p>Blablab, lite intro</p>
+    <p>Även Scrutinizer har fått analysera projektet och kommit fram till ett antal förbättringsmöjligheter.</p>
+
+    <h3>CRAP-score</h3>
+
+    <img src="{{ asset('img/metrics/crap.png') }}" alt="crap">
+
+    <p>
+        Som vi kan se har 3-4 metoder en väldigt hög CRAP-score. "updateBook", "apiBookIsbn" och "createBook"-metoderna är de som går över gränsen på 30 i CRAP-score samt "removeCardAndReturnDeck"-metoden på 20.
+
+        Dessa skulle kunna testas bättre, eller delas upp i fler mindre metoder.
+    </p>
+
+    <h3>Cohesion / Complexity</h3>
+
+    <p>
+        En av klasserna reagerar Scritinizer på lite extra. Detta är klassen "ApiController" som både verkar vara för komplex och har för låg cohesion. Detta listas upp som det enda "issue" som hittades.
+    </p>
+
+    <img src="{{ asset('img/metrics/apicontroller.png') }}" alt="apicontroller">
+
+    <h3>Kvalitetsindex</h3>
+
+    <p>
+        Som vi kan se på bilderna nedan når projektet upp till 9.91 i kvalitetsindex. Orsaken att den inte når upp till en full 10:a är pga. metoderna "createDeckWithDrawnCards", samt "apiBookIsbn" som drar ner ratingen en aning pga. deras höga komplexitet och CRAP-värde.
+    </p>
+
+    <img src="{{ asset('img/metrics/10rating.png') }}" alt="10rating">
+
+    <img src="{{ asset('img/metrics/brating2.png') }}" alt="brating2">
+
+    <h3>Coverage</h3>
+
+    <p>Som vi kan se når alla klasser (exklusive controllers, entities & repository) upp till 100% test coverage, med undantag för en klass; "DeckOfCards", vilket jag anser lite störande.</p>
+
+    <img src="{{ asset('img/metrics/coverage2.png') }}" alt="coverage2">
 
     <h2>Förbättringar</h2>
-    <p>Blablab, lite intro</p>
+
+    <h3>Scrutinizer issue</h3>
+
+    <p>
+        ApiController-klassen är både för komplex och har låg cohesion. Denna borde därför delas upp i flera mindre klasser enligt de olika delarna den består av, dvs. API-routes för 21-spelet i sin egen klass, API-routes för library i sin egen klass osv.
+    </p>
+
+    <p>
+        Efter en implementerad lösning där routsen för API'et nu består av 4 filer istället för 1, kan vi se att Scrutinizer anser att problemet är löst.
+    </p>
+
+    <img src="{{ asset('img/metrics/bugs.png') }}" alt="bugs">
+
+    <h3>LibraryController complexity</h3>
+
+    <p>
+        Både metoderna "updateBook" och "createBook" i LibraryController'n är rätt stora i storlek, samt har en hög complexity. Dessa skulle kunna brytas ut genom att skapa ett par nya metoder som får hantera en del av logiken. Förhoppningsvis kan detta förbättra dessa metoder.
+    </p>
+
+    <p>
+        Efter att ha delat upp dessa i flera metoder kan vi se att problemet egentligen inte blev löst, utan istället har dessa två nya metoder poppat upp på topplistan för de mest komplexa metoderna, medan "updateBook" och "createBook" fallit ner.
+    </p>
+
+    <img src="{{ asset('img/metrics/solution.png') }}" alt="solution">
+    
+    <h3>Coverage</h3>
+
+    <p>Jag skulle vilja uppnå 100% coverage på mina metoder (exkl. controllers etc.). Detta kräver att den sista metoden i "DeckOfCards"-klassen testas.</p>
+
+    <p>Efter en implementerad lösning kan vi nu se att dessa klasser når 100% coverage.</p>
+
+    <img src="{{ asset('img/metrics/fullcoverage.png') }}" alt="fullcoverage">
+
+    <h3>Scrutinizer kvalitetsindex</h3>
+
+    <p>Just nu finns det två metoder som ställer till det så att jag inte uppnåt 10 i Scrutinizers kvalitetsindex. Dessa är "createDeckWithDrawnCards" i "DeckOfCards"-klassen, samt "apiBooksIsbn" i "ApiController"-klassen.</p>
+
+    <p>Dessa är rätt komplexa och stora, och jag tror att dela upp de i två mindre metoder skulle kunna fixa problemet och få projektet att uppnå 10 i kvalitetsindex.</p>
+
+    <p>Efter en implementerad lösning med uppdelning av dessa metoder kan vi nu se att Scrutinizer ger projektet en full 10:a.</p>
+
+    <img src="{{ asset('img/metrics/10points.png') }}" alt="10points">
 
     <h2>Diskussion</h2>
-    <p>Blablab, lite intro</p>
+
+    <p>Användning av dessa typ av analysverktyg känns som en väldigt bra metod att hålla kvaliteten på koden högre än man kanske annars skulle hålla den. T.ex. "cohesion"-problemet jag hade med ett par controllers visade på att jag klumpat ihop många olika metoder (routes) som iofs. hörde till API-et, men som egenligen inte hörde ihop på något annat sätt.</p>
+
+    <p>Att dela upp dessa i flera olika filer där varje fil består av en klass som omfattar en specifik del av API'et känns som att projektet blir mer organiserat och trevligt att jobba med.</p>
+
+    <p>Även om verktygen kan identifiera många problem man missat, känns det som att man lätt kan hamna i tänket att jaga gröna siffror istället för att faktiskt fokusera på sin kod. T.ex. är 100% test coverage väldigt attraktivt, men hur välskrivna testen faktiskt är verkar dessa verktyg inte kunna analysera.</p>
+
+    <p>Därför drar jag som slutsats att dessa verktyg är användbara, men även att man inte kan lita på att de berättar hela sanningen gällande kodkvalitet.</p>
+
 {% endblock %}
