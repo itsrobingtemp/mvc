@@ -63,8 +63,6 @@ class DeckOfCards
         foreach ($this->drawnCards as $drawnCard) {
             if (is_array($drawnCard)) {
                 if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
-                    break;
-
                     return true;
                 } else {
                     return false;
