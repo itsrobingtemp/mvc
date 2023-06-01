@@ -39,6 +39,8 @@ class DeckOfCards
 
     /**
      * Creates a new full deck of cards
+     * 
+     * @return void
      */
     public function createFullDeck(): void
     {
@@ -51,25 +53,38 @@ class DeckOfCards
     }
 
     /**
+     * Creates if drawn cards matches by value and suit
+     * @param int $value
+     * @param string $suit
+     * 
+     * @return bool
+     */
+    public function getDrawnCardValueSuitMatch($value, $suit) : bool {
+        foreach ($this->drawnCards as $drawnCard) {
+            if (is_array($drawnCard)) {
+                if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
+                    break;
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
+
+    /**
      * Creates a new deck of cards excluding drawn cards
+     * 
+     * @return void
      */
     public function createDeckWithDrawnCards(): void
     {
         foreach ($this->suits as $suit) {
             foreach ($this->values as $value) {
                 $newCard = new CardGraphic($suit, $value);
-                $cardExists = false;
 
-                foreach ($this->drawnCards as $drawnCard) {
-                    if (is_array($drawnCard)) {
-                        if ($drawnCard["value"] == $value && $drawnCard["suit"] == $suit) {
-                            $cardExists = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!$cardExists) {
+                if ($this->getDrawnCardValueSuitMatch($value, $suit)) {
                     $this->cards[] = $newCard->getCardGraphic();
                 }
             }
@@ -129,6 +144,19 @@ class DeckOfCards
     }
 
     /**
+     * Checks if cards matches
+     * 
+     * @return bool
+     */
+    public function checkCardSuitAndValueMatch($cardOne, $cardTwo) : bool {
+        if ($cardOne->getSuit() === $cardTwo->getSuit() && $cardOne->getValue() === $cardTwo->getValue()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Removes cards from deck
      * 
      * @return mixed[]
@@ -136,7 +164,7 @@ class DeckOfCards
     public function removeCardAndReturnDeck(Card $cardToBeRemoved): array
     {
         foreach ($this->cards as $index => $card) {
-            if ($card->getSuit() === $cardToBeRemoved->getSuit() && $card->getValue() === $cardToBeRemoved->getValue()) {
+            if ($this->checkCardSuitAndValueMatch($card, $cardToBeRemoved)) {
                 unset($this->cards[$index]);
                 break;
             }
