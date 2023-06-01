@@ -10,58 +10,60 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Library;
 use Doctrine\Persistence\ManagerRegistry;
 
-class ApiBookController extends AbstractController {
-  #[Route('/api/library/books', name: 'apiBooks', methods: ['GET'])]
+class ApiBookController extends AbstractController
+{
+    #[Route('/api/library/books', name: 'apiBooks', methods: ['GET'])]
     public function apiBooks(
         ManagerRegistry $doctrine
     ): Response {
-      $entityManager = $doctrine->getManager();
-      $repository = $entityManager->getRepository(Library::class);
-      $books = $repository->findAll();
+        $entityManager = $doctrine->getManager();
+        $repository = $entityManager->getRepository(Library::class);
+        $books = $repository->findAll();
 
-      $data = [
-          'books' => []
-      ];
+        $data = [
+            'books' => []
+        ];
 
-      foreach ($books as $book) {
-          $data['books'][] = [
-              'title' => $book->getTitle(),
-              'isbn' => $book->getIsbn(),
-              'author' => $book->getAuthor(),
-              'image' => $book->getImage()
-          ];
-      }
+        foreach ($books as $book) {
+            $data['books'][] = [
+                'title' => $book->getTitle(),
+                'isbn' => $book->getIsbn(),
+                'author' => $book->getAuthor(),
+                'image' => $book->getImage()
+            ];
+        }
 
-      $response = new JsonResponse($data);
+        $response = new JsonResponse($data);
 
-      $response->setEncodingOptions(
-          $response->getEncodingOptions() | JSON_PRETTY_PRINT
-      );
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
 
-      return $response;
-  }
-
-  # Non-route, get books by ISBN
-  public function getIsbnBookData($book, $data) {
-    if ($book !== null) {
-      $title = $book->getTitle();
-      $isbn = $book->getIsbn();
-      $author = $book->getAuthor();
-      $image = $book->getImage();
-
-      if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
-          $data = [
-              'books' => [
-                  'title' => $title,
-                  'isbn' => $isbn,
-                  'author' => $author,
-                  'image' => $image
-              ]
-          ];
-      }
+        return $response;
     }
 
-    return $data;
+  # Non-route, get books by ISBN
+  public function getIsbnBookData($book, $data)
+  {
+      if ($book !== null) {
+          $title = $book->getTitle();
+          $isbn = $book->getIsbn();
+          $author = $book->getAuthor();
+          $image = $book->getImage();
+
+          if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+              $data = [
+                  'books' => [
+                      'title' => $title,
+                      'isbn' => $isbn,
+                      'author' => $author,
+                      'image' => $image
+                  ]
+              ];
+          }
+      }
+
+      return $data;
   }
 
   #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]

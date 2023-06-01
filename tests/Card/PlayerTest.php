@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PlayerTest extends TestCase
 {
-    public function testCreateActualPlayer() : void
+    public function testCreateActualPlayer(): void
     {
         $player = new Player(5);
         $this->assertInstanceOf("\App\Card\Player", $player);

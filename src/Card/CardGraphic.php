@@ -23,11 +23,12 @@ class CardGraphic extends Card
 
     /**
      * Returns a string for the suit
-     * 
+     *
      * @param string $suit
      * @return string
      */
-    public function getCardGraphicSuit(string $suit) : string {
+    public function getCardGraphicSuit(string $suit): string
+    {
         $suitString = "";
 
         switch ($suit) {
@@ -50,11 +51,12 @@ class CardGraphic extends Card
 
     /**
      * Returns a string for the value
-     * 
+     *
      * @param int $value
      * @return string
      */
-    public function getCardGraphicValueString(int $value) : string {
+    public function getCardGraphicValueString(int $value): string
+    {
         $valueString = "";
 
         switch ($value) {
@@ -81,11 +83,12 @@ class CardGraphic extends Card
 
     /**
      * Returns a string for the color
-     * 
+     *
      * @param string $suit
      * @return string
      */
-    public function getCardGraphicColorString(string $suit) : string {
+    public function getCardGraphicColorString(string $suit): string
+    {
         $colorString = "";
 
         switch($suit) {
@@ -108,10 +111,10 @@ class CardGraphic extends Card
 
     /**
      * Makes a graphic representation of the card
-     * 
+     *
      * @param string $suit    The suit of a card
      * @param int $value    The value of a card
-     * 
+     *
      * @return mixed[]
      */
     public function setCardGraphic($suit, $value): array
@@ -127,7 +130,7 @@ class CardGraphic extends Card
 
     /**
      * Returns the graphic card array
-     * 
+     *
      * @return mixed[]
      */
     public function getCardGraphic(): array

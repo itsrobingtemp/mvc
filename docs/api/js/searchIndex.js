@@ -56,6 +56,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardGraphic.html#method___construct"
         },                {
+            "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetCardGraphicSuit\u0028\u0029",
+            "name": "getCardGraphicSuit",
+            "summary": "Returns\u0020a\u0020string\u0020for\u0020the\u0020suit",
+            "url": "classes/App-Card-CardGraphic.html#method_getCardGraphicSuit"
+        },                {
+            "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetCardGraphicValueString\u0028\u0029",
+            "name": "getCardGraphicValueString",
+            "summary": "Returns\u0020a\u0020string\u0020for\u0020the\u0020value",
+            "url": "classes/App-Card-CardGraphic.html#method_getCardGraphicValueString"
+        },                {
+            "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetCardGraphicColorString\u0028\u0029",
+            "name": "getCardGraphicColorString",
+            "summary": "Returns\u0020a\u0020string\u0020for\u0020the\u0020color",
+            "url": "classes/App-Card-CardGraphic.html#method_getCardGraphicColorString"
+        },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AsetCardGraphic\u0028\u0029",
             "name": "setCardGraphic",
             "summary": "Makes\u0020a\u0020graphic\u0020representation\u0020of\u0020the\u0020card",
@@ -101,6 +116,11 @@ Search.appendIndex(
             "summary": "Creates\u0020a\u0020new\u0020full\u0020deck\u0020of\u0020cards",
             "url": "classes/App-Card-DeckOfCards.html#method_createFullDeck"
         },                {
+            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AgetDrawnCardValueSuitMatch\u0028\u0029",
+            "name": "getDrawnCardValueSuitMatch",
+            "summary": "Creates\u0020if\u0020drawn\u0020cards\u0020matches\u0020by\u0020value\u0020and\u0020suit",
+            "url": "classes/App-Card-DeckOfCards.html#method_getDrawnCardValueSuitMatch"
+        },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AcreateDeckWithDrawnCards\u0028\u0029",
             "name": "createDeckWithDrawnCards",
             "summary": "Creates\u0020a\u0020new\u0020deck\u0020of\u0020cards\u0020excluding\u0020drawn\u0020cards",
@@ -125,6 +145,11 @@ Search.appendIndex(
             "name": "getRandomCard",
             "summary": "Draws\u0020a\u0020random\u0020card",
             "url": "classes/App-Card-DeckOfCards.html#method_getRandomCard"
+        },                {
+            "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AcheckCardSuitAndValueMatch\u0028\u0029",
+            "name": "checkCardSuitAndValueMatch",
+            "summary": "Checks\u0020if\u0020cards\u0020matches",
+            "url": "classes/App-Card-DeckOfCards.html#method_checkCardSuitAndValueMatch"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AremoveCardAndReturnDeck\u0028\u0029",
             "name": "removeCardAndReturnDeck",
@@ -226,6 +251,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-AboutController.html#method_about"
         },                {
+            "fqsen": "\\App\\Controller\\AboutController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-AboutController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Controller\\ApiController",
             "name": "ApiController",
             "summary": "",
@@ -236,45 +266,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_apiHome"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiDeck\u0028\u0029",
-            "name": "apiDeck",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiShuffle\u0028\u0029",
-            "name": "apiShuffle",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiShuffle"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiDraw\u0028\u0029",
-            "name": "apiDraw",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiDraw"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiDrawNumber\u0028\u0029",
-            "name": "apiDrawNumber",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiDrawNumber"
-        },                {
             "fqsen": "\\App\\Controller\\ApiController\u003A\u003Aquote\u0028\u0029",
             "name": "quote",
             "summary": "",
             "url": "classes/App-Controller-ApiController.html#method_quote"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiGame\u0028\u0029",
-            "name": "apiGame",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiGame"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiBooks\u0028\u0029",
-            "name": "apiBooks",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiBooksIsbn\u0028\u0029",
-            "name": "apiBooksIsbn",
-            "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiBooksIsbn"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",
@@ -505,6 +500,61 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-LibraryRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController",
+            "name": "ApiBookController",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController\u003A\u003AapiBooks\u0028\u0029",
+            "name": "apiBooks",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html#method_apiBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController\u003A\u003AgetIsbnBookData\u0028\u0029",
+            "name": "getIsbnBookData",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html#method_getIsbnBookData"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiBookController\u003A\u003AapiBooksIsbn\u0028\u0029",
+            "name": "apiBooksIsbn",
+            "summary": "",
+            "url": "classes/App-Controller-ApiBookController.html#method_apiBooksIsbn"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiCardController",
+            "name": "ApiCardController",
+            "summary": "",
+            "url": "classes/App-Controller-ApiCardController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiCardController\u003A\u003AapiDeck\u0028\u0029",
+            "name": "apiDeck",
+            "summary": "",
+            "url": "classes/App-Controller-ApiCardController.html#method_apiDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiCardController\u003A\u003AapiShuffle\u0028\u0029",
+            "name": "apiShuffle",
+            "summary": "",
+            "url": "classes/App-Controller-ApiCardController.html#method_apiShuffle"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiCardController\u003A\u003AapiDraw\u0028\u0029",
+            "name": "apiDraw",
+            "summary": "",
+            "url": "classes/App-Controller-ApiCardController.html#method_apiDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiCardController\u003A\u003AapiDrawNumber\u0028\u0029",
+            "name": "apiDrawNumber",
+            "summary": "",
+            "url": "classes/App-Controller-ApiCardController.html#method_apiDrawNumber"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiGameController",
+            "name": "ApiGameController",
+            "summary": "",
+            "url": "classes/App-Controller-ApiGameController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ApiGameController\u003A\u003AapiGame\u0028\u0029",
+            "name": "apiGame",
+            "summary": "",
+            "url": "classes/App-Controller-ApiGameController.html#method_apiGame"
         },                {
             "fqsen": "\\",
             "name": "\\",

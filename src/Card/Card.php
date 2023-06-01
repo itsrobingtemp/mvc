@@ -6,10 +6,10 @@ namespace App\Card;
  * Represents a Card for virtual card games
  */
 class Card
-{   
+{
     /** @var string */
     private $suit;
-    
+
     /** @var int */
     private $value;
 

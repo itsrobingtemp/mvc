@@ -24,7 +24,7 @@ class CardGameController extends AbstractController
         $currentCards = $session->get('current_cards', []);
 
         if (!is_array($currentCards)) {
-          $currentCards = [];
+            $currentCards = [];
         }
 
         $deck = new DeckOfCards($currentCards);
@@ -45,7 +45,7 @@ class CardGameController extends AbstractController
         $currentCards = $session->get('current_cards', []);
 
         if (!is_array($currentCards)) {
-          $currentCards = [];
+            $currentCards = [];
         }
 
         $deck = new DeckOfCards($currentCards);
@@ -65,7 +65,7 @@ class CardGameController extends AbstractController
         $currentCards = $session->get('current_cards', []);
 
         if (!is_array($currentCards)) {
-          $currentCards = [];
+            $currentCards = [];
         }
 
         $deck = new DeckOfCards($currentCards);
@@ -90,11 +90,11 @@ class CardGameController extends AbstractController
     {
         /** @var string[] $_route_params */
         $num = $_route_params['num'];
-        
+
         $currentCards = $session->get('current_cards', []);
 
         if (!is_array($currentCards)) {
-          $currentCards = [];
+            $currentCards = [];
         }
 
         $deck = new DeckOfCards($currentCards);

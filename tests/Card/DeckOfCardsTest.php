@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
  */
 class DeckOfCardTest extends TestCase
 {
-    public function testCreateDeckWithoutInputCards() : void
+    public function testCreateDeckWithoutInputCards(): void
     {
         $deck = new DeckOfCards();
         $this->assertInstanceOf("\App\Card\DeckOfCards", $deck);
@@ -19,7 +19,7 @@ class DeckOfCardTest extends TestCase
         $this->assertCount(5, $res);
     }
 
-    public function testCreateDeckWithInputCards() : void
+    public function testCreateDeckWithInputCards(): void
     {
         $deck = new DeckOfCards([["value" => 5, "suit" => "spades"]]);
 
@@ -28,7 +28,7 @@ class DeckOfCardTest extends TestCase
         $this->assertCount(5, $res);
     }
 
-    public function testGetDeckCards() : void
+    public function testGetDeckCards(): void
     {
         $deck = new DeckOfCards();
         $res = $deck->getCards();
@@ -37,7 +37,7 @@ class DeckOfCardTest extends TestCase
         $this->assertCount(52, $res);
     }
 
-    public function testShuffleDeck() : void
+    public function testShuffleDeck(): void
     {
         $deck = new DeckOfCards();
         $res = $deck->getCards();
@@ -48,7 +48,7 @@ class DeckOfCardTest extends TestCase
         $this->assertNotEquals($res, $resShuffled);
     }
 
-    public function testRemoveCardAndReturnDeck() : void 
+    public function testRemoveCardAndReturnDeck(): void
     {
         $deck = new DeckOfCards();
         $card = new CardGraphic("spades", 5);
@@ -57,7 +57,7 @@ class DeckOfCardTest extends TestCase
         $this->assertCount(51, $res);
     }
 
-    public function testGetRandomCardFail() : void 
+    public function testGetRandomCardFail(): void
     {
         $deck = new DeckOfCards();
         $res = $deck->getRandomCard();

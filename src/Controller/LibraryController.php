@@ -41,19 +41,6 @@ class LibraryController extends AbstractController
         return $this->render('library/bookById.html.twig', $data);
     }
 
-    # Creates new book with data
-    public function createNewBook($book, $title, $isbn, $author, $image, $entityManager) {
-        if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
-            $book->setTitle($title);
-            $book->setIsbn($isbn);
-            $book->setAuthor($author);
-            $book->setImage($image);
-
-            $entityManager->persist($book);
-            $entityManager->flush();
-        }
-    }
-
     #[Route('/library/create', name: 'createBook', methods: ['POST'])]
     public function createBook(
         ManagerRegistry $doctrine,
@@ -68,7 +55,15 @@ class LibraryController extends AbstractController
 
         $book = new Library();
 
-        $this->createNewBook($book, $title, $isbn, $author, $image, $entityManager);
+        if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+            $book->setTitle($title);
+            $book->setIsbn($isbn);
+            $book->setAuthor($author);
+            $book->setImage($image);
+
+            $entityManager->persist($book);
+            $entityManager->flush();
+        }
 
         return $this->redirectToRoute('library');
     }
@@ -108,8 +103,20 @@ class LibraryController extends AbstractController
         return $this->render('library/bookUpdate.html.twig', $data);
     }
 
-    # Updates book
-    public function updateBookData($book, $bookId, $title, $isbn, $author, $image, $entityManager) {
+    #[Route('/library/updated/{bookId}', name: 'updateBook', methods: ['POST'])]
+    public function updateBook(
+        ManagerRegistry $doctrine,
+        Request $request,
+        int $bookId
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Library::class)->find($bookId);
+
+        $title = $request->request->get('title');
+        $isbn = $request->request->get('isbn');
+        $author = $request->request->get('author');
+        $image = $request->request->get('image');
+
         if (!$book) {
             throw $this->createNotFoundException(
                 'No books found for id '.$bookId
@@ -125,23 +132,6 @@ class LibraryController extends AbstractController
 
         $entityManager->persist($book);
         $entityManager->flush();
-    }
-
-    #[Route('/library/updated/{bookId}', name: 'updateBook', methods: ['POST'])]
-    public function updateBook(
-        ManagerRegistry $doctrine,
-        Request $request,
-        int $bookId
-    ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($bookId);
-
-        $title = $request->request->get('title');
-        $isbn = $request->request->get('isbn');
-        $author = $request->request->get('author');
-        $image = $request->request->get('image');
-
-        $this->updateBookData($book, $bookId, $title, $isbn, $author, $image, $entityManager);
 
         return $this->redirectToRoute('library');
     }

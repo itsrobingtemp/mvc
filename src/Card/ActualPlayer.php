@@ -17,7 +17,7 @@ class ActualPlayer extends Player
 
     /**
      * Returns a card array
-     * 
+     *
      * @return mixed[]
      */
     public function draw(): array

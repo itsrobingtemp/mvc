@@ -6,7 +6,7 @@ namespace App\Card;
  * Represents the game of 21
  */
 class TwentyOne
-{   
+{
     /** @var mixed[] */
     private $game;
 
@@ -32,7 +32,7 @@ class TwentyOne
      * Draws a card for the player
      */
     public function playerDraw(): void
-    {   
+    {
         $player = null;
         $playerScore = $this->game["playerScore"];
 
@@ -65,7 +65,7 @@ class TwentyOne
 
     /**
      * Returns the current game as an array
-     * 
+     *
      * @return mixed[]
      */
     public function getCurrentGame(): array

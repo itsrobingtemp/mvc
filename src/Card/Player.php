@@ -28,7 +28,7 @@ class Player
 
     /**
      * Sets the score
-     * 
+     *
      * @param int $score
      */
     public function setScore($score): void

@@ -13,7 +13,7 @@ class GameController extends AbstractController
 {
     #[Route('/game', name: 'game')]
     public function game(SessionInterface $session): Response
-    {   
+    {
         $currentGame = $session->get("current_game");
 
         if (!is_array($currentGame)) {
