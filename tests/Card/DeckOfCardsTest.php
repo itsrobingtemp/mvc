@@ -48,12 +48,19 @@ class DeckOfCardTest extends TestCase
         $this->assertNotEquals($res, $resShuffled);
     }
 
-    // public function testRemoveCardFromDeck() {
-    //   $deck = new DeckOfCards();
-    //   $card = new Card("spades", 5);
+    public function testRemoveCardAndReturnDeck() : void 
+    {
+        $deck = new DeckOfCards();
+        $card = new CardGraphic("spades", 5);
 
-    //   $res2 = $deck->removeCardAndReturnDeck($card);
+        $res = $deck->removeCardAndReturnDeck($card);
+        $this->assertCount(51, $res);
+    }
 
-    //   $this->assertCount(51, $res2);
-    // }
+    public function testGetRandomCardFail() : void 
+    {
+        $deck = new DeckOfCards();
+        $res = $deck->getRandomCard();
+        $this->assertNotEmpty($res);
+    }
 }

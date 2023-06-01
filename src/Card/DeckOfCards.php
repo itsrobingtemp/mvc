@@ -134,9 +134,9 @@ class DeckOfCards
         $index = rand(0, count($this->cards) - 1);
         $randomCard = $this->cards[$index];
 
-        if (!is_array($randomCard)) {
-            return [];
-        }
+        // if (!is_array($randomCard)) {
+        //     return [];
+        // }
 
         return $randomCard;
     }
@@ -147,7 +147,7 @@ class DeckOfCards
      * @return bool
      */
     public function checkCardSuitAndValueMatch($cardOne, $cardTwo) : bool {
-        if ($cardOne->getSuit() === $cardTwo->getSuit() && $cardOne->getValue() === $cardTwo->getValue()) {
+        if ($cardOne["suit"] === $cardTwo->getSuit() && $cardOne["value"] === $cardTwo->getValue()) {
             return true;
         }
 
