@@ -53,22 +53,20 @@ class ApiBookController extends AbstractController
         $book = $repository->findOneBy(['isbn' => $isbn]);
 
 
-        if ($book !== null) {
-            $title = $book->getTitle();
-            $isbn = $book->getIsbn();
-            $author = $book->getAuthor();
-            $image = $book->getImage();
+        $title = $book->getTitle();
+        $isbn = $book->getIsbn();
+        $author = $book->getAuthor();
+        $image = $book->getImage();
 
-            if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
-                $data = [
-                    'books' => [
-                        'title' => $title,
-                        'isbn' => $isbn,
-                        'author' => $author,
-                        'image' => $image
-                    ]
-                ];
-            }
+        if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
+            $data = [
+                'books' => [
+                    'title' => $title,
+                    'isbn' => $isbn,
+                    'author' => $author,
+                    'image' => $image
+                ]
+            ];
         }
 
         $response = new JsonResponse($data);
