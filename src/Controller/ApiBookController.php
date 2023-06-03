@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Library;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Card\Book;
 
 class ApiBookController extends AbstractController
 {
@@ -20,18 +21,8 @@ class ApiBookController extends AbstractController
         $repository = $entityManager->getRepository(Library::class);
         $books = $repository->findAll();
 
-        $data = [
-            'books' => []
-        ];
-
-        foreach ($books as $book) {
-            $data['books'][] = [
-                'title' => $book->getTitle(),
-                'isbn' => $book->getIsbn(),
-                'author' => $book->getAuthor(),
-                'image' => $book->getImage()
-            ];
-        }
+        $booksObj = new Book();
+        $data = $booksObj->getAllBookData($books);
 
         $response = new JsonResponse($data);
 
@@ -42,39 +33,17 @@ class ApiBookController extends AbstractController
         return $response;
     }
 
-  # Non-route, get books by ISBN
-  public function getIsbnBookData($book, $data)
-  {
-      if ($book !== null) {
-          $title = $book->getTitle();
-          $isbn = $book->getIsbn();
-          $author = $book->getAuthor();
-          $image = $book->getImage();
-
-          if (is_string($title) && is_string($isbn) && is_string($author) && is_string($image)) {
-              $data = [
-                  'books' => [
-                      'title' => $title,
-                      'isbn' => $isbn,
-                      'author' => $author,
-                      'image' => $image
-                  ]
-              ];
-          }
-      }
-
-      return $data;
-  }
 
   #[Route('/api/library/book/{isbn}', name: 'apiBooksIsbn')]
     public function apiBooksIsbn(ManagerRegistry $doctrine, string $isbn): Response
     {
-        $dataArr = [];
         $entityManager = $doctrine->getManager();
         $repository = $entityManager->getRepository(Library::class);
         $book = $repository->findOneBy(['isbn' => $isbn]);
 
-        $data = $this->getIsbnBookData($book, $dataArr);
+        $bookObj = new Book();
+        $data = $bookObj->getIsbnBookData($book);
+
         $response = new JsonResponse($data);
 
         $response->setEncodingOptions(

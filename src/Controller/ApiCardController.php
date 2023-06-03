@@ -96,7 +96,7 @@ class ApiCardController extends AbstractController
         return $response;
     }
 
-    #[Route('/api/draw/{num}', name: 'apiDrawNumber', methods: ['POST'])]
+    #[Route('/api/draw/{num}', name: 'apiDrawNumber', methods: ['GET', 'POST'])]
     public function apiDrawNumber($_route_params, SessionInterface $session): Response
     {
         /** @var string[] $_route_params */
