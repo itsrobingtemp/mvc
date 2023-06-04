@@ -5,13 +5,23 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\HealthDiseaseRepository;
 
 class ProjController extends AbstractController
 {
     #[Route('/proj', name: 'projIndex')]
-    public function projIndex(): Response
+    public function projIndex(
+      HealthDiseaseRepository $healthDiseaseRepository
+    ): Response
     {
-        return $this->render('proj/index.html.twig');
+        $dataPoints = $healthDiseaseRepository
+        ->findAll();
+
+        $data = [
+          'healthDisease' => $dataPoints
+        ];
+
+        return $this->render('proj/index.html.twig', $data);
     }
 
     #[Route('/proj/about', name: 'projAbout')]
