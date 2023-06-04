@@ -1,6 +1,6 @@
 {% extends "proj/base.html.twig" %}
 
-{% block title %}Proj{% endblock %}
+{% block title %}Indikatorer för hållbarhet — God hälsa och välbefinnande{% endblock %}
 
 {% block body %}
   <header class="header__proj">
@@ -39,6 +39,36 @@
       </div>
 
       <div id="chart1" class="chart"></div>
+
+      <div class="container__content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Ut commodo lectus in lorem aliquet, a molestie erat sagittis. 
+          Aenean luctus tortor quis mi aliquam, at tincidunt neque mattis. 
+          Integer fringilla purus sit amet odio ultricies commodo. 
+          Donec in odio nunc. In dignissim, ligula quis iaculis lobortis, 
+          sapien nulla dapibus felis, ac varius ex justo rutrum nibh. 
+          Aenean dolor ex, mollis sit amet suscipit non, 
+          condimentum sed nunc.
+        </p>
+      </div>
+
+      <div id="chart2" class="chart"></div>
+
+      <div class="container__content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Ut commodo lectus in lorem aliquet, a molestie erat sagittis. 
+          Aenean luctus tortor quis mi aliquam, at tincidunt neque mattis. 
+          Integer fringilla purus sit amet odio ultricies commodo. 
+          Donec in odio nunc. In dignissim, ligula quis iaculis lobortis, 
+          sapien nulla dapibus felis, ac varius ex justo rutrum nibh. 
+          Aenean dolor ex, mollis sit amet suscipit non, 
+          condimentum sed nunc.
+        </p>
+      </div>
+
+      <div id="chart3" class="chart"></div>
     </div>
 
   </section>
@@ -61,12 +91,56 @@
       },
       yaxis: {
         min: 0,
-        max: 30,
+        max: 15,
       },
     };
 
     var chart1 = new ApexCharts(document.querySelector("#chart1"), diseaseOne);
     chart1.render();
 
+    // male, women, 30-70 cardio, cancer, diabetes etc. WORLD
+    var optionsChart2 = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'World',
+        data: [22.4, 20.9, 19.4, 18.5, 18.3]
+      }],
+      xaxis: {
+        categories: [2000, 2005, 2010, 2015, 2020]
+      },
+      yaxis: {
+        min: 0,
+        max: 30,
+      }
+    }
+
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), optionsChart2);
+    chart2.render();
+
+    // male, women, 30-70 cardio, cancer, diabetes etc. BOTH
+    var optionsChart3 = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'Sweden',
+        data: [13.2, 11.8, 10.4, 9.3, 9.1]
+      }, {
+        name: 'World',
+        data: [22.4, 20.9, 19.4, 18.5, 18.3]
+      }],
+      xaxis: {
+        categories: [2000, 2005, 2010, 2015, 2020]
+      },
+      yaxis: {
+        min: 0,
+        max: 30,
+      }
+    }
+
+    var chart3 = new ApexCharts(document.querySelector("#chart3"), optionsChart3);
+    chart3.render();
   </script>
 {% endblock %}
