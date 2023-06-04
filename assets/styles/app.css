@@ -117,3 +117,33 @@ button {
   max-width: 100%;
   overflow-x: auto;
 }
+
+.container__proj {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0rem 3rem;
+}
+
+.header__proj {
+  padding: 6rem 0rem;
+}
+
+.container__proj.container__proj--center {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.title {
+  max-width: 50ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__proj {
+  padding: 6rem 0rem 3rem 0rem;
+}
+
+.section__proj {
+  padding: 6rem 0rem;
+}

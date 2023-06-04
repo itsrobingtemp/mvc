@@ -12,18 +12,27 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </head>
     <body>
-        <div class="container">
-            <header class="header">
-                <span class="title">rogr19</span>
-            </header>
-            <nav>
-                Nav
-            </nav>
-            
-                {% block body %}{% endblock %}
-            <footer>Robin 2023</footer>
-        </div>
+        <nav class="nav__proj">
+            <div class="container__proj">Nav</div>
+        </nav>
+
+        <header class="header__proj">
+            <div class="container__proj container__proj--center">
+                <div class="title">
+                    <h1>Indikatorer för hållbarhet — God hälsa och välbefinnande</h1>
+                    <p>Robin Granqvist — 2023</p>
+                </div>
+            </div>
+        </header>
+        
+        {% block body %}{% endblock %}
+
+        <footer class="footer__proj">
+            <div class="container__proj">Kmom10 — 2023</div>
+        </footer>
     </body>
 </html>

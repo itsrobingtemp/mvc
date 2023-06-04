@@ -3,6 +3,32 @@
 {% block title %}Proj{% endblock %}
 
 {% block body %}
-    <h1>Proj</h1>
-    <p>Text here.</p>
+  <section class="section__proj">
+    <div class="container__proj">Nav</div>
+
+    <div id="chart1" class="chart"></div>
+  </section>
+
+  <script>
+    // male, women, 30-70 cardio, cancer, diabetes etc. SWEDEN
+    var optionsChart1 = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'Sweden',
+        data: [13.2, 11.8, 10.4, 9.3, 9.1]
+      }],
+      xaxis: {
+        categories: [2000, 2005, 2010, 2015, 2020]
+      },
+      yaxis: {
+        min: 0,
+        max: 30,
+      }
+    }
+
+    var chart1 = new ApexCharts(document.querySelector("#chart1"), optionsChart1);
+    chart1.render();
+  </script>
 {% endblock %}
