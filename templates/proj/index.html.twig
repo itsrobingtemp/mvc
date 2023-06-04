@@ -3,32 +3,70 @@
 {% block title %}Proj{% endblock %}
 
 {% block body %}
-  <section class="section__proj">
-    <div class="container__proj">Nav</div>
+  <header class="header__proj">
+      <div class="container__proj container__proj--center">
+          <div class="title">
+              <h1 class="h1__proj">Indikatorer för hållbarhet — God hälsa och välbefinnande</h1>
+              <p>Robin Granqvist — 2023</p>
+          </div>
+      </div>
+  </header>
 
-    <div id="chart1" class="chart"></div>
+  <section class="section__proj section__proj--start">
+    <div class="container__proj">
+      <div class="container__content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Ut commodo lectus in lorem aliquet, a molestie erat sagittis. 
+          Aenean luctus tortor quis mi aliquam, at tincidunt neque mattis. 
+          Integer fringilla purus sit amet odio ultricies commodo. 
+          Donec in odio nunc. In dignissim, ligula quis iaculis lobortis, 
+          sapien nulla dapibus felis, ac varius ex justo rutrum nibh. 
+          Aenean dolor ex, mollis sit amet suscipit non, 
+          condimentum sed nunc.
+        </p>
+
+        <p>
+          Donec aliquam et justo eget accumsan. Aliquam facilisis enim 
+          eget turpis pulvinar, vitae facilisis est eleifend. Proin 
+          venenatis finibus nibh, vel ultrices erat cursus et. Quisque 
+          ac diam eleifend, molestie nulla id, egestas ex. Quisque 
+          eleifend ligula feugiat augue facilisis, eu sagittis mauris 
+          dictum. Nunc mattis pharetra pulvinar. Nulla facilisi. 
+          Praesent tincidunt magna a nibh iaculis mollis. Morbi purus eros, 
+          sollicitudin vitae odio id, imperdiet congue justo. 
+        </p>
+      </div>
+
+      <div id="chart1" class="chart"></div>
+    </div>
+
   </section>
 
   <script>
+
     // male, women, 30-70 cardio, cancer, diabetes etc. SWEDEN
-    var optionsChart1 = {
+    let diseaseOne = {
       chart: {
-        type: 'line'
+        type: "line",
       },
-      series: [{
-        name: 'Sweden',
-        data: [13.2, 11.8, 10.4, 9.3, 9.1]
-      }],
+      series: [
+        {
+          name: "Sweden",
+          data: [13.2, 11.8, 10.4, 9.3, 9.1],
+        },
+      ],
       xaxis: {
-        categories: [2000, 2005, 2010, 2015, 2020]
+        categories: [2000, 2005, 2010, 2015, 2020],
       },
       yaxis: {
         min: 0,
         max: 30,
-      }
-    }
+      },
+    };
 
-    var chart1 = new ApexCharts(document.querySelector("#chart1"), optionsChart1);
+    var chart1 = new ApexCharts(document.querySelector("#chart1"), diseaseOne);
     chart1.render();
+
   </script>
 {% endblock %}
