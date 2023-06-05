@@ -11,6 +11,8 @@ import "./styles/app.css";
 // start the Stimulus application
 import "./bootstrap";
 
-import hello from "./js/hello";
+import setupCharts from "./js/charts";
 
-console.log(hello());
+document.addEventListener("DOMContentLoaded", function () {
+  setupCharts();
+});
