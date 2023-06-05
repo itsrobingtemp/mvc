@@ -12,10 +12,9 @@ class ProjController extends AbstractController
 {
     #[Route('/proj', name: 'projIndex')]
     public function projIndex(
-      HealthDiseaseRepository $healthDiseaseRepository,
-      SerializerInterface $serializer
-    ): Response
-    {
+        HealthDiseaseRepository $healthDiseaseRepository,
+        SerializerInterface $serializer
+    ): Response {
         $dataSwedenDisease = $healthDiseaseRepository
         ->findItemsByTypeAndCountry("disease", "sweden");
 

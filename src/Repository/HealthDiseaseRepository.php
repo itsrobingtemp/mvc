@@ -40,7 +40,7 @@ class HealthDiseaseRepository extends ServiceEntityRepository
     }
 
     public function findItemsByTypeAndCountry($type, $country): array
-    {   
+    {
         $entityManager = $this->getEntityManager();
         $queryBuilder = $entityManager->createQueryBuilder();
 
