@@ -39,6 +39,25 @@ class HealthDiseaseRepository extends ServiceEntityRepository
         }
     }
 
+    public function findItemsByTypeAndCountry($type, $country): array
+    {   
+        $entityManager = $this->getEntityManager();
+        $queryBuilder = $entityManager->createQueryBuilder();
+
+        $query = $queryBuilder
+            ->select('dataPoint')
+            ->from(HealthDisease::class, 'dataPoint')
+            ->where('dataPoint.type = :type')
+            ->andWhere('dataPoint.country = :country')
+            ->setParameter('type', $type)
+            ->setParameter('country', $country)
+            ->getQuery();
+
+        $items = $query->getResult();
+
+        return $items;
+    }
+
 //    /**
 //     * @return HealthDisease[] Returns an array of HealthDisease objects
 //     */
