@@ -103,6 +103,11 @@
           </p>
         </div>
       </div>
+
+      <div id="chart4" class="chart"></div>
+      <div id="chart5" class="chart"></div>
+      <div id="chart6" class="chart"></div>
+
     </div>
   </section>
 
@@ -127,6 +132,7 @@
     const dataSwedenInfant = rawDataArrayToDataPoints(swedenInfantRawData);
     const dataWorldInfant = rawDataArrayToDataPoints(worldInfantRawData);
 
+    // Disease
     const swedenDiseaseChartOptions = {
       chart: {
         type: "line",
@@ -169,6 +175,30 @@
     const worldDiseaseChart = new ApexCharts(document.querySelector("#chart2"), worldDiseaseChartOptions);
     worldDiseaseChart.render();
 
+    const bothDiseaseChartOptions = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'World',
+        data: dataWorldDisease
+      }, {
+        name: 'World',
+        data: dataWorldDisease
+      }],
+      xaxis: {
+        categories: [2000, 2005, 2010, 2015, 2020]
+      },
+      yaxis: {
+        min: 0,
+        max: 30,
+      }
+    }
+
+    const bothDiseaseChart = new ApexCharts(document.querySelector("#chart3"), bothDiseaseChartOptions);
+    bothDiseaseChart.render();
+
+    // Infant
     var swedenInfantChartOptions = {
       chart: {
         type: 'line'
@@ -182,7 +212,7 @@
       },
       yaxis: {
         min: 0,
-        max: 30,
+        max: 10,
       }
     }
 
@@ -194,7 +224,7 @@
         type: 'line'
       },
       series: [{
-        name: 'Sweden',
+        name: 'World',
         data: dataWorldInfant
       }],
       xaxis: {
@@ -202,12 +232,35 @@
       },
       yaxis: {
         min: 0,
-        max: 30,
+        max: 60,
       }
     }
 
     const worldInfantChart = new ApexCharts(document.querySelector("#chart5"), worldInfantChartOptions);
     worldInfantChart.render();
+
+    var bothInfantChartOptions = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'Sweden',
+        data: dataSwedenInfant
+      },{
+        name: 'World',
+        data: dataWorldInfant
+      }],
+      xaxis: {
+        categories: [2000, 2005, 2010, 2015, 2018]
+      },
+      yaxis: {
+        min: 0,
+        max: 60,
+      }
+    }
+
+    const bothInfantChart = new ApexCharts(document.querySelector("#chart6"), bothInfantChartOptions);
+    bothInfantChart.render();
 
   </script>
 {% endblock %}
