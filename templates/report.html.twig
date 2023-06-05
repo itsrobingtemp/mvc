@@ -291,4 +291,75 @@
       Min TIL är helt enkelt att lära mig mer om kodkvalitet och verktyg som PHPMetrics & Scrutinizer.
     </p>
 
+    <h1><a href="#kmom10">Kmom10</a></h1>
+
+    <h2>Krav 1, 2, 3: Webbplats</h2>
+
+    <p>
+      Jag valde att visualisera indikatorer för hållbar utveckling. Mer specifikt valde jag nummer 3 av de globala målen; 
+      god hälsa och välbefinnande. Datan jag visualiserade handlade om dödlighet av ett antal folksjukdomar samt spädbarnsdödlighet. 
+      Datan är hämtad genom webbsidan Globalamalen.se och gäller datapunkter mellan åren 2000 och 2020 för både hela världen samt för Sverige som land.
+      Datan visualiseras både var för sig, samt en jämförelse mellan Sverige och hela världen.
+    </p>
+
+    <p>
+      Graferna som visualiserar datan är skapade med datavisualiseringsbiblioteket ApexCharts i Javascript.
+      Datan är lagrad i en tabell "health_disease" i min SQLite databas, och hämtas genom Doctrine och skickas 
+      vidare till min Twig-template.
+    </p>
+
+    <p>
+      Tabellen innehåller 4 rader; type, country, year och data, vilka passar bra för att hantera datan jag visualiserat. Genom "type" kan jag 
+      filtrera ut datan beroende på om den tillhör folksjukdomar eller spädbarnsdöd, och genom "country" filtrerar jag på om den tillhör Sverige eller 
+      hela världen.
+    </p>
+
+    <h2>Genomförande</h2>
+
+    <p>
+      Eftersom doctrine hanterar datan på sitt eget sätt i objekt fick jag snabbt lite problem med 
+      att kunna hantera datan i min Javascript-fil där mina ApexChart-objekt endast accepterar en vanlig array med data. 
+      Dock hittade jag en lösning som använder sig av ett SerializerInterface i kontrollern som konverterar datan från till JSON, 
+      och som jag sedan kan hantera i Javascript "som vanligt" på ett hyfsat snyggt sätt.
+    </p>
+
+    <p>
+      I övrigt gick genomförandet väldigt smidigt. Jag har använt mig av ApexCharts en hel del innan, och att få fortsätta 
+      jobba i samma Symfony-projekt som under resten av kursen förenklade en hel del. Det känns som att man tack vare tidigare kursmoment 
+      var väl förberedd på att kunna jämföra projektet inom rimlig tid.
+    </p>
+
+    <p>
+      Överlag tycker jag även att jag fick till en hyfsat snygg lösning, både gällande koden, visualiseringen av datan och "stylingen" på webbsidan.
+    </p>
+
+    <h2>Tankar</h2>
+
+    <p>
+      Denna kurs har varit väldigt trevlig, och materialet vi fått ta del av har hjälpt till väldigt mycket. Guiderna på Github har förklarat 
+      i princip allt jag har fastnat på eller funderat över, så jag kan nog inte klaga över något gällande materialet.
+    </p>
+
+    <p>
+      Ett problem jag haft genomgående genom hela kursen har haft att göra med Linux i WSL2 på min Windows-maskin. Av någon anledning 
+      tar page refresh:er, composeranvändning och t.ex. linting otroligt länge för datorn att jobba med. En page refresh kan ta ca. 30s - 1 min, 
+      vilket har gjort det lite svårare att jobba med Symfony.
+    </p>
+
+    <p>
+      En lösning jag använt för vissa kursmoment är att först skriva min kod utanför Symfony, testa hur den funkar och till slut 
+      port:a in den i Symfony. En annan lösning har varit att t.ex. skriva CSS och Javascript direkt i template-filerna för att slippa 
+      köra "npm build"-kommandot som tar flera minuter att köra.
+    </p>
+
+    <p>
+      Detta har enligt min research varit ett problem för många som kör Symfony genom WSL2, men jag har tyvärr inte hittat en lösning på problemet.
+      Jag kanske skulle göra en större rekommendation i kursmaterialet att köra dual boot med Linux (om man kör Windows) ifall detta är ett problem 
+      för många studeranden.
+    </p>
+
+    <p>
+      Med undantag av detta Symfony-problem är jag i övrigt väldigt nöjd med kursen. Den får 8,5 av mig.
+    </p>
+    
 {% endblock %}
