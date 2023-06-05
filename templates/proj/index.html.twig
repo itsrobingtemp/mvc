@@ -37,8 +37,7 @@
           <p>
             I statistiken inkluderas och jämförs data från både hela världen, 
             samt avgränsat till Sverige som land. Dessa presenteras punkt för 
-            punkt med hjälp av korta texter samt visuella grafer. All statistik 
-            innehåller data för både män och kvinnor mellan 30-70 år gamla.
+            punkt med hjälp av korta texter samt visuella grafer.
           </p>
         </div>
 
@@ -48,7 +47,8 @@
           <p>
             <a href="https://www.who.int/teams/noncommunicable-diseases/invisible-numbers">Enligt WHO</a> 
             står dessa typer av folksjukdomar för tre fjärdedelar av alla dödsfall i världen och är därför ett 
-            viktigt område att forska i för att hitta bl.a. riskfaktorer och bekämpningsmöjligheter.
+            viktigt område att forska i för att hitta bl.a. riskfaktorer och bekämpningsmöjligheter.  All statistik 
+            innehåller data för både män och kvinnor mellan 30-70 år gamla.
           </p>
 
           <h3 class="h2__proj">Världen</h3>
@@ -67,7 +67,7 @@
 
           <p>
             Om vi sedan tittar på statistiken i Sverige kan vi se en liknande minskning på runt 4% de senaste
-            20 åren.
+            20 åren, men överlag lägre nivåer av dödlighet av dessa sjukdomar.
           </p>
         </div>
       </div>
@@ -80,7 +80,8 @@
 
           <p>
             För att få en bättre bild över jämförelsen mellan hela världen och Sverige kan vi ta en titt 
-            på grafen nedan. Världen är i grönt medan Sverige är i blått.
+            på grafen nedan. Världen är i blått medan Sverige är i grönt. Som vi kan se ligger Sverige en hel 
+            del mycket bättre till gällande dessa sjukdomar, men båda minskar drastiskt över dessa år.
           </p>
         </div>
       </div>
@@ -92,20 +93,46 @@
           <h2 class="h2__proj">Spädbarnsdödlighet</h2>
           
           <p>
-            Spädbarnsdödlighet är en annan viktig punkt när det kommer till hälsa i världen. 
+            Spädbarnsdödlighet är en annan viktig punkt när det kommer till att mäta hälsa och välbefinnande i världen. 
             <a href="https://www.who.int/data/gho/data/themes/topics/indicator-groups/indicator-group-details/GHO/infant-mortality">Enligt en uppskattning 
             av WHO</a> har spädbarnsdödligheten minskat från 8.7 miljoner till 4.0 miljoner globalt 2018.
           </p>
 
-          <h3 class="h2__proj">Världen</h3>
+          <h3 class="h2__proj">Sverige</h3>
           <p>
-            
+            Om vi börjar med att titta på Sveriges siffror kan vi se att även spädbarnsdödligheten har sjunkit de 
+            senaste ca. 20 åren. År 2000 låg den på 3.4 per 1000 födslar medan den låg på 2.2 år 2018.
           </p>
         </div>
       </div>
 
       <div id="chart4" class="chart"></div>
+
+      <div class="container__content">
+        <div class="content__block">
+          <h3 class="h2__proj">Världen</h3>
+
+          <p>
+            Enligt grafen nedan kan vi se att siffrorna för hela världen ligger på en väldigt mycket högre nivå,
+            men även en mer drastiskt sjunkande kurva under dessa år.
+          </p>
+        </div>
+      </div>
+
+
       <div id="chart5" class="chart"></div>
+
+      <div class="container__content">
+        <div class="content__block">
+          <h3 class="h2__proj">Världen & Sverige</h3>
+
+          <p>
+            Om vi jämför datan mellan Sverige och hela världen kan vi få en bild av hur stor skillnad det faktiskt är. 
+            Världen visas i blått medan Sverige i grönt.
+          </p>
+        </div>
+      </div>
+
       <div id="chart6" class="chart"></div>
 
     </div>
@@ -183,8 +210,8 @@
         name: 'World',
         data: dataWorldDisease
       }, {
-        name: 'World',
-        data: dataWorldDisease
+        name: 'Sweden',
+        data: dataSwedenDisease
       }],
       xaxis: {
         categories: [2000, 2005, 2010, 2015, 2020]
@@ -244,11 +271,11 @@
         type: 'line'
       },
       series: [{
-        name: 'Sweden',
-        data: dataSwedenInfant
-      },{
         name: 'World',
         data: dataWorldInfant
+      },{
+        name: 'Sweden',
+        data: dataSwedenInfant
       }],
       xaxis: {
         categories: [2000, 2005, 2010, 2015, 2018]

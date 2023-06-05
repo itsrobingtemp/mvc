@@ -87,6 +87,12 @@
 
             .nav__proj {
                 padding: 2rem 0rem;
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+
+            .nav__proj a {
+                color: #000;
             }
 
             .content__block p {
@@ -97,8 +103,8 @@
     <body class="body__proj">
         <div class="container__proj">
             <nav class="nav__proj">
-                <a href="/">Hem</a>
-                <a href="/">Om</a>
+                <a href="{{ path('projIndex') }}">Hem</a>
+                <a href="{{ path('projAbout') }}">Om</a>
             </nav>
         </div>
         

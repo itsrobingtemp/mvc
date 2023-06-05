@@ -1,6 +1,6 @@
 {
   "includes": ["src"],
-  "exclude": ["test[s]?"],
+  "exclude": ["test[s]?", "Controller", "Entity", "Repository", "Kernel"],
   "report": {
     "html": "docs/metrics"
   },
